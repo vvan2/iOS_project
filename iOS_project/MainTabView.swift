@@ -1,0 +1,37 @@
+import SwiftUI
+
+struct MainTabView: View {
+    var body: some View {
+        TabView {
+            HomeView()
+                .tabItem {
+                    Image(systemName: "sun.max")
+                    Text("홈")
+                }
+
+            ScheduleView()
+                .tabItem {
+                    Image(systemName: "clock")
+                    Text("일정")
+                }
+
+            InfoView()
+                .tabItem {
+                    Image(systemName: "doc.plaintext")
+                    Text("정보")
+                }
+            
+            ChatView()
+                        .tabItem {
+                            Image(systemName: "bubble.left.and.bubble.right")
+                            Text("챗봇")
+                        }
+
+            MyView()
+                .tabItem {
+                    Image(systemName: "person.circle")
+                    Text("마이")
+                }
+        }
+    }
+}

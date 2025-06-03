@@ -7,18 +7,25 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct SplashView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            LinearGradient(colors: [.purple, .blue], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+            VStack {
+                Text("Buggi Mate")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                Text("스케줄링 일상 메이트")
+                    .font(.subheadline)
+                    .foregroundColor(.white.opacity(0.7))
+            }
         }
-        .padding()
     }
 }
 
+
 #Preview {
-    ContentView()
+    SplashView()
 }
