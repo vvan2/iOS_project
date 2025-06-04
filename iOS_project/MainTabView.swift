@@ -20,12 +20,14 @@ struct MainTabView: View {
                     Image(systemName: "doc.plaintext")
                     Text("정보")
                 }
-            
-            ChatView()
-                        .tabItem {
-                            Image(systemName: "bubble.left.and.bubble.right")
-                            Text("챗봇")
-                        }
+
+            NavigationStack {
+                ChatView()
+            }
+            .tabItem {
+                Image(systemName: "bubble.left.and.bubble.right")
+                Text("챗봇")
+            }
 
             MyView()
                 .tabItem {
