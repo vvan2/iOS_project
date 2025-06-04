@@ -34,6 +34,9 @@
 		E7A74F192DEFEE5A006338F4 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F182DEFEE5A006338F4 /* ChatViewModel.swift */; };
 		E7A74F1B2DEFEE89006338F4 /* ChatRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F1A2DEFEE89006338F4 /* ChatRoomView.swift */; };
 		E7A74F1D2DF002CC006338F4 /* getBotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F1C2DF002CC006338F4 /* getBotResponse.swift */; };
+		E7A74F1F2DF02C64006338F4 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F1E2DF02C64006338F4 /* SigninView.swift */; };
+		E7A74F212DF03305006338F4 /* SignUpStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F202DF03305006338F4 /* SignUpStep1View.swift */; };
+		E7A74F232DF0331E006338F4 /* SignUpStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F222DF0331E006338F4 /* SignUpStep2View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +87,9 @@
 		E7A74F182DEFEE5A006338F4 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		E7A74F1A2DEFEE89006338F4 /* ChatRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomView.swift; sourceTree = "<group>"; };
 		E7A74F1C2DF002CC006338F4 /* getBotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getBotResponse.swift; sourceTree = "<group>"; };
+		E7A74F1E2DF02C64006338F4 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
+		E7A74F202DF03305006338F4 /* SignUpStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1View.swift; sourceTree = "<group>"; };
+		E7A74F222DF0331E006338F4 /* SignUpStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +203,9 @@
 				E7A74F012DED9B05006338F4 /* MyView.swift */,
 				E7A74F112DEDC575006338F4 /* ChartView.swift */,
 				E7A74F1A2DEFEE89006338F4 /* ChatRoomView.swift */,
+				E7A74F1E2DF02C64006338F4 /* SigninView.swift */,
+				E7A74F202DF03305006338F4 /* SignUpStep1View.swift */,
+				E7A74F222DF0331E006338F4 /* SignUpStep2View.swift */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -358,6 +367,7 @@
 				E7A74EF82DED98A6006338F4 /* DayScheduleView.swift in Sources */,
 				E7A74F162DEFEE25006338F4 /* Message.swift in Sources */,
 				E7A74F0A2DEDBE0B006338F4 /* RoundedCorner.swift in Sources */,
+				E7A74F1F2DF02C64006338F4 /* SigninView.swift in Sources */,
 				E7A74F102DEDC0AD006338F4 /* AddLectureView.swift in Sources */,
 				E7A74EFE2DED9A00006338F4 /* InfoCard.swift in Sources */,
 				E7A74F1B2DEFEE89006338F4 /* ChatRoomView.swift in Sources */,
@@ -370,7 +380,9 @@
 				E7A74EF42DED96FF006338F4 /* Color.swift in Sources */,
 				E7A74EF22DED94A1006338F4 /* SplashView.swift in Sources */,
 				E7A74F192DEFEE5A006338F4 /* ChatViewModel.swift in Sources */,
+				E7A74F212DF03305006338F4 /* SignUpStep1View.swift in Sources */,
 				E7A74EC62DED9325006338F4 /* iOS_projectApp.swift in Sources */,
+				E7A74F232DF0331E006338F4 /* SignUpStep2View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
