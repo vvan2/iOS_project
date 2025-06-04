@@ -6,8 +6,8 @@ struct AddLectureDialog: View {
     @State private var title = ""
     @State private var professor = ""
     @State private var dayIndex = 0
-    @State private var start = ""
-    @State private var end = ""
+    @State private var start: Date = Date()
+    @State private var end: Date = Date()
 
     let onSave: (Lecture) -> Void
     let days = ["월", "화", "수", "목", "금"]
@@ -31,11 +31,11 @@ struct AddLectureDialog: View {
             .pickerStyle(.segmented)
 
             HStack {
-                TextField("시작시간", text: $start)
-                    .textFieldStyle(.roundedBorder)
+                DatePicker("시작시간", selection: $start, displayedComponents: .hourAndMinute)
+                    .labelsHidden()
                 Text("~")
-                TextField("종료시간", text: $end)
-                    .textFieldStyle(.roundedBorder)
+                DatePicker("종료시간", selection: $end, displayedComponents: .hourAndMinute)
+                    .labelsHidden()
             }
 
             Button("저장") {
@@ -47,12 +47,11 @@ struct AddLectureDialog: View {
                     title: title,
                     professor: professor,
                     dayIndex: dayIndex,
-                    timeRange: "\(start) ~ \(end)",
+                    timeRange: "\(formattedTime(start)) ~ \(formattedTime(end))",
                     colorHex: randomColor
                 )
                 onSave(new)
             }
-
             .frame(maxWidth: .infinity)
             .padding()
             .background(Color(hex: "#A28CF5"))
@@ -65,5 +64,10 @@ struct AddLectureDialog: View {
         .shadow(radius: 10)
         .frame(width: 300)
     }
-}
 
+    private func formattedTime(_ time: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: time)
+    }
+}

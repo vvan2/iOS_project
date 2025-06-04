@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 struct DayScheduleView: View {
     let days = ["월", "화", "수", "목", "금"]
     let timeBlocks = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
@@ -43,11 +42,10 @@ struct DayScheduleView: View {
                                         }
                                         .frame(maxWidth: .infinity)
                                         .padding(4)
-                                        .background(Color(hex: lecture.colorHex)) 
+                                        .background(Color(hex: lecture.colorHex))
                                         .foregroundColor(.white)
                                         .cornerRadius(6)
                                     }
-
                                 }
                             }
                         }
