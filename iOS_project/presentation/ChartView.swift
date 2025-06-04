@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ChatView: View {
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
+        ZStack {
             // 배경
             Color(hex: "#A28CF5")
                 .ignoresSafeArea()
@@ -24,67 +24,63 @@ struct ChatView: View {
                 Text("궁금한 것을 Buggi 한테 물어봐!")
                     .foregroundColor(.white)
                     .font(.subheadline)
-                
 
-                // 흰색 말풍선 + 버튼
-                VStack(spacing: 14) {
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.white)
-                        .frame(width: 220, height: 180)
-                        .overlay(
-                            VStack {
-                                Spacer()
-                                Button(action: {
-                                    print("챗 시작")
-                                }) {
-                                    Text("시작")
-                                        .foregroundColor(.white)
-                                        .padding(.horizontal, 20)
-                                        .padding(.vertical, 6)
-                                        .background(Color(hex: "#A28CF5"))
-                                        .cornerRadius(20)
-                                }
-                                .padding(.bottom, 24)
-                            }
-                        )
-                }
+                // 말풍선 카드 + 버튼
+                RoundedRectangle(cornerRadius: 20)
+                                       .fill(Color.white)
+                                       .frame(width: 220, height: 180)
+                                       .overlay(
+                                           VStack {
+                                               Spacer()
+                                               NavigationLink(destination: ChatRoomView()) {
+                                                   Text("시작")
+                                                       .foregroundColor(.white)
+                                                       .padding(.horizontal, 20)
+                                                       .padding(.vertical, 6)
+                                                       .background(Color(hex: "#A28CF5"))
+                                                       .cornerRadius(20)
+                                               }
+                                               .padding(.bottom, 24)
+                                           }
+                    )
 
                 Spacer()
             }
 
+            // 하단 캐릭터 (탭바 위에 딱 붙게)
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    // 캐릭터 ZStack
+                    ZStack(alignment: .top) {
+                        // 반원
+                        Circle()
+                            .trim(from: 0, to: 0.5)
+                            .rotation(.degrees(180))
+                            .fill(Color(hex: "#926CE3"))
+                            .frame(width: 220, height: 220)
+                            .shadow(radius: 4)
 
-            // 하단 캐릭터 반원
-            ZStack(alignment: .top) {
-                // 반원 (하단 고정)
-                Circle()
-                    .trim(from: 0, to: 0.5)
-                    .rotation(.degrees(180))
-                    .fill(Color(hex: "#926CE3"))
-                    .frame(width: 220, height: 220)
-                    .shadow(radius: 4)
+                        // 눈 + 입
+                        VStack(spacing: 10) {
+                            HStack(spacing: 16) {
+                                Circle().fill(.white).frame(width: 16, height: 24)
+                                Circle().fill(.white).frame(width: 16, height: 24)
+                            }
 
-                // 눈 + 입
-                VStack(spacing: 10) {
-                    HStack(spacing: 16) {
-                        Circle().fill(.white).frame(width: 16, height: 24)
-                        Circle().fill(.white).frame(width: 16, height: 24)
+                            RoundedRectangle(cornerRadius: 2)
+                                .fill(.white.opacity(0.7))
+                                .frame(width: 30, height: 4)
+                        }
+                        .offset(y: 40)
                     }
+                    .frame(width: 220, height: 110)
+                    .position(x: UIScreen.main.bounds.width - 110, y: UIScreen.main.bounds.height - 152)
+                    .ignoresSafeArea()
 
-                    RoundedRectangle(cornerRadius: 2)
-                        .fill(.white.opacity(0.7))
-                        .frame(width: 30, height: 4)
                 }
-                .offset(y: 40)
             }
-            .frame(maxWidth: .infinity, alignment: .trailing)
-            .padding(.trailing, 16)
-     
-
         }
-        
     }
-}
-
-#Preview {
-    ChatView()
 }
