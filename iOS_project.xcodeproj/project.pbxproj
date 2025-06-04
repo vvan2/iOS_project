@@ -30,6 +30,10 @@
 		E7A74F102DEDC0AD006338F4 /* AddLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F0F2DEDC0AD006338F4 /* AddLectureView.swift */; };
 		E7A74F122DEDC575006338F4 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F112DEDC575006338F4 /* ChartView.swift */; };
 		E7A74F142DEDD102006338F4 /* InfoCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F132DEDD102006338F4 /* InfoCharacterView.swift */; };
+		E7A74F162DEFEE25006338F4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F152DEFEE25006338F4 /* Message.swift */; };
+		E7A74F192DEFEE5A006338F4 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F182DEFEE5A006338F4 /* ChatViewModel.swift */; };
+		E7A74F1B2DEFEE89006338F4 /* ChatRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F1A2DEFEE89006338F4 /* ChatRoomView.swift */; };
+		E7A74F1D2DF002CC006338F4 /* getBotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F1C2DF002CC006338F4 /* getBotResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +80,10 @@
 		E7A74F0F2DEDC0AD006338F4 /* AddLectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLectureView.swift; sourceTree = "<group>"; };
 		E7A74F112DEDC575006338F4 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		E7A74F132DEDD102006338F4 /* InfoCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCharacterView.swift; sourceTree = "<group>"; };
+		E7A74F152DEFEE25006338F4 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		E7A74F182DEFEE5A006338F4 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		E7A74F1A2DEFEE89006338F4 /* ChatRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomView.swift; sourceTree = "<group>"; };
+		E7A74F1C2DF002CC006338F4 /* getBotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getBotResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +134,7 @@
 		E7A74EC42DED9325006338F4 /* iOS_project */ = {
 			isa = PBXGroup;
 			children = (
+				E7A74F172DEFEE4A006338F4 /* domain */,
 				E7A74F0B2DEDBFA6006338F4 /* data */,
 				E7A74F002DED9A5E006338F4 /* presentation */,
 				E7A74EFF2DED9A4B006338F4 /* component */,
@@ -187,6 +196,7 @@
 				E7A74EEF2DED946F006338F4 /* HomeView.swift */,
 				E7A74F012DED9B05006338F4 /* MyView.swift */,
 				E7A74F112DEDC575006338F4 /* ChartView.swift */,
+				E7A74F1A2DEFEE89006338F4 /* ChatRoomView.swift */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -195,8 +205,18 @@
 			isa = PBXGroup;
 			children = (
 				E7A74F0D2DEDC02D006338F4 /* Lecture.swift */,
+				E7A74F152DEFEE25006338F4 /* Message.swift */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		E7A74F172DEFEE4A006338F4 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74F182DEFEE5A006338F4 /* ChatViewModel.swift */,
+				E7A74F1C2DF002CC006338F4 /* getBotResponse.swift */,
+			);
+			path = domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,16 +356,20 @@
 				E7A74F022DED9B05006338F4 /* MyView.swift in Sources */,
 				E7A74EF02DED946F006338F4 /* HomeView.swift in Sources */,
 				E7A74EF82DED98A6006338F4 /* DayScheduleView.swift in Sources */,
+				E7A74F162DEFEE25006338F4 /* Message.swift in Sources */,
 				E7A74F0A2DEDBE0B006338F4 /* RoundedCorner.swift in Sources */,
 				E7A74F102DEDC0AD006338F4 /* AddLectureView.swift in Sources */,
 				E7A74EFE2DED9A00006338F4 /* InfoCard.swift in Sources */,
+				E7A74F1B2DEFEE89006338F4 /* ChatRoomView.swift in Sources */,
 				E7A74F082DED9C10006338F4 /* MainTabView.swift in Sources */,
 				E7A74F122DEDC575006338F4 /* ChartView.swift in Sources */,
 				E7A74F0E2DEDC02D006338F4 /* Lecture.swift in Sources */,
 				E7A74EFA2DED98CA006338F4 /* MonthCalendarView.swift in Sources */,
 				E7A74F062DED9BC9006338F4 /* RootView.swift in Sources */,
+				E7A74F1D2DF002CC006338F4 /* getBotResponse.swift in Sources */,
 				E7A74EF42DED96FF006338F4 /* Color.swift in Sources */,
 				E7A74EF22DED94A1006338F4 /* SplashView.swift in Sources */,
+				E7A74F192DEFEE5A006338F4 /* ChatViewModel.swift in Sources */,
 				E7A74EC62DED9325006338F4 /* iOS_projectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,9 +1,10 @@
 import Foundation
 
-struct Lecture: Identifiable, Equatable {
+struct Lecture: Identifiable {
     let id = UUID()
-    var title: String
-    var professor: String
-    var dayIndex: Int
-    var timeRange: String
+    let title: String
+    let professor: String
+    let dayIndex: Int
+    let timeRange: String
+    let colorHex: String // 강의 색상
 }

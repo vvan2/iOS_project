@@ -34,23 +34,20 @@ struct DayScheduleView: View {
                                         .fill(Color.gray.opacity(0.1))
                                         .frame(height: 44)
 
-                                    // 강의가 있다면 표시
+                                    // 시간표 그리드 내부
                                     if let lecture = lectures.first(where: { $0.dayIndex == dayIndex && $0.timeRange.contains(time) }) {
                                         VStack(spacing: 2) {
-                                            Text(lecture.title)
-                                                .font(.caption2)
-                                                .bold()
-                                            Text(lecture.professor)
-                                                .font(.caption2)
-                                            Text(lecture.timeRange)
-                                                .font(.caption2)
+                                            Text(lecture.title).font(.caption2).bold()
+                                            Text(lecture.professor).font(.caption2)
+                                            Text(lecture.timeRange).font(.caption2)
                                         }
                                         .frame(maxWidth: .infinity)
                                         .padding(4)
-                                        .background(Color.blue.opacity(0.8))
+                                        .background(Color(hex: lecture.colorHex)) 
                                         .foregroundColor(.white)
                                         .cornerRadius(6)
                                     }
+
                                 }
                             }
                         }

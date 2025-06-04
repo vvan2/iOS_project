@@ -40,12 +40,19 @@ struct AddLectureDialog: View {
 
             Button("저장") {
                 print("📝 저장 버튼 클릭됨")
-                let new = Lecture(title: title,
-                                  professor: professor,
-                                  dayIndex: dayIndex,
-                                  timeRange: "\(start) ~ \(end)")
+                let purpleColors = ["#9568d5", "#886dd7", "#a87ef4", "#b189d8", "#8e7bf9"]
+                let randomColor = purpleColors.randomElement() ?? "#a87ef4"
+
+                let new = Lecture(
+                    title: title,
+                    professor: professor,
+                    dayIndex: dayIndex,
+                    timeRange: "\(start) ~ \(end)",
+                    colorHex: randomColor
+                )
                 onSave(new)
             }
+
             .frame(maxWidth: .infinity)
             .padding()
             .background(Color(hex: "#A28CF5"))
