@@ -22,10 +22,12 @@ struct HomeView: View {
                                     .font(.custom("Marker Felt", size: 18))
                                     .foregroundColor(.white)
                                     .padding(.leading)
+                                    .padding(.top, 10)
                                 Spacer()
                                 Image(systemName: "ellipsis")
                                     .foregroundColor(.white)
                                     .padding(.trailing)
+                                    .padding(.top, 10)
                             }
                             .padding(.top, 40)
 
