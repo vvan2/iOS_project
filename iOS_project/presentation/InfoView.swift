@@ -33,6 +33,7 @@ struct InfoView: View {
                     subtitle: "워크숍, 특강 등 다양한 프로그램",
                     url: "https://hsportal.hansung.ac.kr"
                 )
+                .padding(.top, 16)
 
                 // 졸업 & 장소 예약
                 HStack(spacing: 16) {
@@ -54,6 +55,13 @@ struct InfoView: View {
                     subtitle: "학생들의 생생한 수강평",
                     url: "https://everytime.kr"
                 )
+                
+                InfoCardView(
+                    title: "학식 메뉴",
+                    subtitle: "오늘의 학식은?",
+                    url: "https://www.hansung.ac.kr/hansung/1920/subview.do"
+                )
+
 
                 Spacer()
             }
@@ -101,3 +109,6 @@ struct InfoView: View {
     }
 }
 
+#Preview {
+    InfoView()
+}
