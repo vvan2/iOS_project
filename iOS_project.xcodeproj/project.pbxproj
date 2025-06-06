@@ -37,6 +37,14 @@
 		E7A74F1F2DF02C64006338F4 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F1E2DF02C64006338F4 /* SigninView.swift */; };
 		E7A74F212DF03305006338F4 /* SignUpStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F202DF03305006338F4 /* SignUpStep1View.swift */; };
 		E7A74F232DF0331E006338F4 /* SignUpStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F222DF0331E006338F4 /* SignUpStep2View.swift */; };
+		E7D27CD32DF0D6120081C81D /* FeatureIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CD22DF0D6120081C81D /* FeatureIcon.swift */; };
+		E7D27CD52DF0D70E0081C81D /* IconItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CD42DF0D70E0081C81D /* IconItem.swift */; };
+		E7D27CD72DF0D71F0081C81D /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CD62DF0D71F0081C81D /* CardItem.swift */; };
+		E7D27CD92DF0D7320081C81D /* NotificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CD82DF0D7320081C81D /* NotificationItem.swift */; };
+		E7D27CDB2DF0E1180081C81D /* CardButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CDA2DF0E1180081C81D /* CardButtonStyle.swift */; };
+		E7D27CDD2DF0E3F30081C81D /* GlassTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CDC2DF0E3F30081C81D /* GlassTextFieldStyle.swift */; };
+		E7D27CDF2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CDE2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift */; };
+		E7D27CE12DF0E4420081C81D /* SecondaryGlassButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CE02DF0E4420081C81D /* SecondaryGlassButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +98,14 @@
 		E7A74F1E2DF02C64006338F4 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
 		E7A74F202DF03305006338F4 /* SignUpStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1View.swift; sourceTree = "<group>"; };
 		E7A74F222DF0331E006338F4 /* SignUpStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2View.swift; sourceTree = "<group>"; };
+		E7D27CD22DF0D6120081C81D /* FeatureIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureIcon.swift; sourceTree = "<group>"; };
+		E7D27CD42DF0D70E0081C81D /* IconItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconItem.swift; sourceTree = "<group>"; };
+		E7D27CD62DF0D71F0081C81D /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
+		E7D27CD82DF0D7320081C81D /* NotificationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationItem.swift; sourceTree = "<group>"; };
+		E7D27CDA2DF0E1180081C81D /* CardButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardButtonStyle.swift; sourceTree = "<group>"; };
+		E7D27CDC2DF0E3F30081C81D /* GlassTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassTextFieldStyle.swift; sourceTree = "<group>"; };
+		E7D27CDE2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryGlassButtonStyle.swift; sourceTree = "<group>"; };
+		E7D27CE02DF0E4420081C81D /* SecondaryGlassButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryGlassButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,14 +156,13 @@
 		E7A74EC42DED9325006338F4 /* iOS_project */ = {
 			isa = PBXGroup;
 			children = (
+				E7A74F252DF0C00B006338F4 /* application */,
+				E7A74F242DF0BFDF006338F4 /* global */,
 				E7A74F172DEFEE4A006338F4 /* domain */,
 				E7A74F0B2DEDBFA6006338F4 /* data */,
 				E7A74F002DED9A5E006338F4 /* presentation */,
-				E7A74EFF2DED9A4B006338F4 /* component */,
-				E7A74EC52DED9325006338F4 /* iOS_projectApp.swift */,
 				E7A74EC92DED9327006338F4 /* Assets.xcassets */,
 				E7A74ECB2DED9327006338F4 /* Preview Content */,
-				E7A74F072DED9C10006338F4 /* MainTabView.swift */,
 			);
 			path = iOS_project;
 			sourceTree = "<group>";
@@ -187,6 +202,11 @@
 				E7A74F092DEDBE0B006338F4 /* RoundedCorner.swift */,
 				E7A74F0F2DEDC0AD006338F4 /* AddLectureView.swift */,
 				E7A74F132DEDD102006338F4 /* InfoCharacterView.swift */,
+				E7D27CD22DF0D6120081C81D /* FeatureIcon.swift */,
+				E7D27CDA2DF0E1180081C81D /* CardButtonStyle.swift */,
+				E7D27CDC2DF0E3F30081C81D /* GlassTextFieldStyle.swift */,
+				E7D27CDE2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift */,
+				E7D27CE02DF0E4420081C81D /* SecondaryGlassButtonStyle.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -194,18 +214,14 @@
 		E7A74F002DED9A5E006338F4 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
-				E7A74EFB2DED99E3006338F4 /* InfoView.swift */,
-				E7A74EF92DED98CA006338F4 /* MonthCalendarView.swift */,
-				E7A74EF72DED98A6006338F4 /* DayScheduleView.swift */,
-				E7A74EF52DED9873006338F4 /* ScheduleView.swift */,
-				E7A74EF12DED94A1006338F4 /* SplashView.swift */,
-				E7A74EEF2DED946F006338F4 /* HomeView.swift */,
-				E7A74F012DED9B05006338F4 /* MyView.swift */,
-				E7A74F112DEDC575006338F4 /* ChartView.swift */,
-				E7A74F1A2DEFEE89006338F4 /* ChatRoomView.swift */,
-				E7A74F1E2DF02C64006338F4 /* SigninView.swift */,
-				E7A74F202DF03305006338F4 /* SignUpStep1View.swift */,
-				E7A74F222DF0331E006338F4 /* SignUpStep2View.swift */,
+				E7A74F2E2DF0C0FA006338F4 /* splash */,
+				E7A74F2D2DF0C0D7006338F4 /* signup */,
+				E7A74F2C2DF0C0D0006338F4 /* signin */,
+				E7A74F2B2DF0C07D006338F4 /* schedule */,
+				E7A74F2A2DF0C075006338F4 /* chat */,
+				E7A74F292DF0C071006338F4 /* my */,
+				E7A74F282DF0C06A006338F4 /* info */,
+				E7A74F272DF0C063006338F4 /* home */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -215,6 +231,9 @@
 			children = (
 				E7A74F0D2DEDC02D006338F4 /* Lecture.swift */,
 				E7A74F152DEFEE25006338F4 /* Message.swift */,
+				E7D27CD42DF0D70E0081C81D /* IconItem.swift */,
+				E7D27CD62DF0D71F0081C81D /* CardItem.swift */,
+				E7D27CD82DF0D7320081C81D /* NotificationItem.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -226,6 +245,99 @@
 				E7A74F1C2DF002CC006338F4 /* getBotResponse.swift */,
 			);
 			path = domain;
+			sourceTree = "<group>";
+		};
+		E7A74F242DF0BFDF006338F4 /* global */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74F262DF0C044006338F4 /* navigation */,
+				E7A74EFF2DED9A4B006338F4 /* component */,
+			);
+			path = global;
+			sourceTree = "<group>";
+		};
+		E7A74F252DF0C00B006338F4 /* application */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74EC52DED9325006338F4 /* iOS_projectApp.swift */,
+			);
+			path = application;
+			sourceTree = "<group>";
+		};
+		E7A74F262DF0C044006338F4 /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74F072DED9C10006338F4 /* MainTabView.swift */,
+			);
+			path = navigation;
+			sourceTree = "<group>";
+		};
+		E7A74F272DF0C063006338F4 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74EEF2DED946F006338F4 /* HomeView.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		E7A74F282DF0C06A006338F4 /* info */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74EFB2DED99E3006338F4 /* InfoView.swift */,
+			);
+			path = info;
+			sourceTree = "<group>";
+		};
+		E7A74F292DF0C071006338F4 /* my */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74F012DED9B05006338F4 /* MyView.swift */,
+			);
+			path = my;
+			sourceTree = "<group>";
+		};
+		E7A74F2A2DF0C075006338F4 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74F1A2DEFEE89006338F4 /* ChatRoomView.swift */,
+				E7A74F112DEDC575006338F4 /* ChartView.swift */,
+			);
+			path = chat;
+			sourceTree = "<group>";
+		};
+		E7A74F2B2DF0C07D006338F4 /* schedule */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74EF72DED98A6006338F4 /* DayScheduleView.swift */,
+				E7A74EF52DED9873006338F4 /* ScheduleView.swift */,
+				E7A74EF92DED98CA006338F4 /* MonthCalendarView.swift */,
+			);
+			path = schedule;
+			sourceTree = "<group>";
+		};
+		E7A74F2C2DF0C0D0006338F4 /* signin */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74F1E2DF02C64006338F4 /* SigninView.swift */,
+			);
+			path = signin;
+			sourceTree = "<group>";
+		};
+		E7A74F2D2DF0C0D7006338F4 /* signup */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74F222DF0331E006338F4 /* SignUpStep2View.swift */,
+				E7A74F202DF03305006338F4 /* SignUpStep1View.swift */,
+			);
+			path = signup;
+			sourceTree = "<group>";
+		};
+		E7A74F2E2DF0C0FA006338F4 /* splash */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74EF12DED94A1006338F4 /* SplashView.swift */,
+			);
+			path = splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,7 +471,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7A74EFC2DED99E3006338F4 /* InfoView.swift in Sources */,
+				E7D27CD32DF0D6120081C81D /* FeatureIcon.swift in Sources */,
 				E7A74EF62DED9873006338F4 /* ScheduleView.swift in Sources */,
+				E7D27CE12DF0E4420081C81D /* SecondaryGlassButtonStyle.swift in Sources */,
+				E7D27CDF2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift in Sources */,
 				E7A74F142DEDD102006338F4 /* InfoCharacterView.swift in Sources */,
 				E7A74F042DED9B1D006338F4 /* ToggleRow.swift in Sources */,
 				E7A74F022DED9B05006338F4 /* MyView.swift in Sources */,
@@ -370,10 +485,14 @@
 				E7A74F1F2DF02C64006338F4 /* SigninView.swift in Sources */,
 				E7A74F102DEDC0AD006338F4 /* AddLectureView.swift in Sources */,
 				E7A74EFE2DED9A00006338F4 /* InfoCard.swift in Sources */,
+				E7D27CDB2DF0E1180081C81D /* CardButtonStyle.swift in Sources */,
 				E7A74F1B2DEFEE89006338F4 /* ChatRoomView.swift in Sources */,
 				E7A74F082DED9C10006338F4 /* MainTabView.swift in Sources */,
+				E7D27CD92DF0D7320081C81D /* NotificationItem.swift in Sources */,
 				E7A74F122DEDC575006338F4 /* ChartView.swift in Sources */,
 				E7A74F0E2DEDC02D006338F4 /* Lecture.swift in Sources */,
+				E7D27CDD2DF0E3F30081C81D /* GlassTextFieldStyle.swift in Sources */,
+				E7D27CD52DF0D70E0081C81D /* IconItem.swift in Sources */,
 				E7A74EFA2DED98CA006338F4 /* MonthCalendarView.swift in Sources */,
 				E7A74F062DED9BC9006338F4 /* RootView.swift in Sources */,
 				E7A74F1D2DF002CC006338F4 /* getBotResponse.swift in Sources */,
@@ -382,6 +501,7 @@
 				E7A74F192DEFEE5A006338F4 /* ChatViewModel.swift in Sources */,
 				E7A74F212DF03305006338F4 /* SignUpStep1View.swift in Sources */,
 				E7A74EC62DED9325006338F4 /* iOS_projectApp.swift in Sources */,
+				E7D27CD72DF0D71F0081C81D /* CardItem.swift in Sources */,
 				E7A74F232DF0331E006338F4 /* SignUpStep2View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
