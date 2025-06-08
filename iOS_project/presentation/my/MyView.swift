@@ -1,10 +1,16 @@
 import SwiftUI
 
 struct MyView: View {
+    // MARK: - 상태 변수
     @State private var alarmOn = true
     @State private var adOn = true
     @State private var messageOn = true
+    
+    // 로그아웃 & 별점 다이얼로그 상태
     @State private var isLoggedOut = false
+    @State private var showRatingDialog = false
+    @State private var selectedRating: Int = 0
+    
     @State private var frequentlyUsedKeywords: [String] = ["iOS", "SwiftUI", "알고리즘", "데이터베이스"]
     @State private var animateProfile = false
     @State private var showKeywords = false
@@ -23,32 +29,43 @@ struct MyView: View {
                 }
                 .background(
                     LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color(hex: "#F8F6FF"),
-                            Color.white
-                        ]),
+                        gradient: Gradient(colors: [ Color(hex: "#F8F6FF"), Color.white ]),
                         startPoint: .top,
                         endPoint: .bottom
                     )
                 )
                 .ignoresSafeArea(edges: .top)
             }
-            .background(
-                NavigationLink(destination: SignInView(onLogin: {}), isActive: $isLoggedOut) {
-                    EmptyView()
-                }
-            )
+            .navigationBarHidden(true)
         }
         .onAppear {
+            // 프로필 애니메이션
             withAnimation(.spring(response: 1.2, dampingFraction: 0.8)) {
                 animateProfile = true
             }
-            
+            // 키워드 애니메이션
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 withAnimation(.easeInOut(duration: 0.8)) {
                     showKeywords = true
                 }
             }
+        }
+        // 별점 선택 다이얼로그
+        .sheet(isPresented: $showRatingDialog) {
+            RatingDialog(
+                rating: $selectedRating,
+                onConfirm: {
+                    showRatingDialog = false
+                    isLoggedOut = true
+                }
+            )
+        }
+        // 로그아웃 후 로그인 화면 전체 모달로 전환
+        .fullScreenCover(isPresented: $isLoggedOut) {
+            SignInView(onLogin: {
+                // 로그인 후 이 뷰로 복귀
+                isLoggedOut = false
+            })
         }
     }
     
@@ -67,11 +84,10 @@ struct MyView: View {
             )
             .frame(height: 280)
             
-            // 장식적 요소들
             decorativeElements
             
             VStack(spacing: 24) {
-                // 타이틀
+                // 타이틀 + 설정 버튼
                 HStack {
                     VStack(alignment: .leading, spacing: 4) {
                         Text("My Buggi")
@@ -84,15 +100,13 @@ struct MyView: View {
                                     endPoint: .bottomTrailing
                                 )
                             )
-                            .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
+                            .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
                         
                         Text("나만의 공간")
                             .font(.system(size: 14, weight: .medium))
                             .foregroundColor(.white.opacity(0.8))
                     }
                     Spacer()
-                    
-                    // 설정 버튼
                     Button(action: {}) {
                         Image(systemName: "gearshape.fill")
                             .font(.system(size: 20))
@@ -100,10 +114,7 @@ struct MyView: View {
                             .frame(width: 40, height: 40)
                             .background(Color.white.opacity(0.2))
                             .clipShape(Circle())
-                            .overlay(
-                                Circle()
-                                    .stroke(Color.white.opacity(0.3), lineWidth: 1)
-                            )
+                            .overlay(Circle().stroke(Color.white.opacity(0.3), lineWidth: 1))
                     }
                 }
                 .padding(.horizontal, 24)
@@ -115,26 +126,12 @@ struct MyView: View {
         }
     }
     
-    // MARK: - 장식적 요소들
+    // MARK: - 장식적 요소
     private var decorativeElements: some View {
         ZStack {
-            // 플로팅 원들
-            Circle()
-                .fill(Color.white.opacity(0.1))
-                .frame(width: 120, height: 120)
-                .offset(x: -50, y: 50)
-            
-            Circle()
-                .fill(Color.white.opacity(0.05))
-                .frame(width: 80, height: 80)
-                .offset(x: 100, y: -20)
-            
-            Circle()
-                .fill(Color.white.opacity(0.08))
-                .frame(width: 60, height: 60)
-                .offset(x: 150, y: 80)
-                
-            // 글래스모피즘 효과
+            Circle().fill(Color.white.opacity(0.1)).frame(width: 120, height: 120).offset(x: -50, y: 50)
+            Circle().fill(Color.white.opacity(0.05)).frame(width: 80, height: 80).offset(x: 100, y: -20)
+            Circle().fill(Color.white.opacity(0.08)).frame(width: 60, height: 60).offset(x: 150, y: 80)
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.white.opacity(0.1))
                 .frame(width: 200, height: 40)
@@ -146,48 +143,38 @@ struct MyView: View {
     // MARK: - 프로필 아바타
     private var profileAvatar: some View {
         ZStack {
-            // 외부 링
             Circle()
                 .stroke(
-                    LinearGradient(
-                        colors: [Color.white.opacity(0.6), Color.white.opacity(0.2)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
+                    LinearGradient(colors: [Color.white.opacity(0.6), Color.white.opacity(0.2)],
+                                   startPoint: .topLeading,
+                                   endPoint: .bottomTrailing),
                     lineWidth: 3
                 )
                 .frame(width: 130, height: 130)
-                .scaleEffect(animateProfile ? 1.0 : 0.8)
-                .opacity(animateProfile ? 1.0 : 0.3)
+                .scaleEffect(animateProfile ? 1 : 0.8)
+                .opacity(animateProfile ? 1 : 0.3)
             
-            // 메인 아바타
             ZStack {
                 Circle()
-                    .fill(
-                        LinearGradient(
-                            gradient: Gradient(colors: [
-                                Color(hex: "#B8A9FF"),
-                                Color(hex: "#9A83F7")
-                            ]),
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
+                    .fill(LinearGradient(
+                        gradient: Gradient(colors: [Color(hex: "#B8A9FF"), Color(hex: "#9A83F7")]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ))
                     .frame(width: 110, height: 110)
-                    .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+                    .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 5)
                 
-                // 눈
                 HStack(spacing: 16) {
-                    ForEach(0..<2, id: \.self) { _ in
+                    ForEach(0..<2) { _ in
                         Ellipse()
-                            .fill(Color.white)
+                            .fill(.white)
                             .frame(width: 16, height: 26)
-                            .shadow(color: Color.black.opacity(0.1), radius: 2, x: 0, y: 1)
+                            .shadow(color: .black.opacity(0.1), radius: 2, x: 0, y: 1)
                     }
                 }
-                .scaleEffect(animateProfile ? 1.0 : 0.8)
+                .scaleEffect(animateProfile ? 1 : 0.8)
             }
-            .scaleEffect(animateProfile ? 1.0 : 0.8)
+            .scaleEffect(animateProfile ? 1 : 0.8)
             .rotationEffect(.degrees(animateProfile ? 0 : -10))
         }
         .padding(.bottom, 20)
@@ -196,20 +183,10 @@ struct MyView: View {
     // MARK: - 메인 컨텐츠
     private var mainContent: some View {
         VStack(spacing: 24) {
-            // 프로필 정보 카드
-            profileInfoCard
-                .padding(.top, -50)
-                .zIndex(1)
-            
-            // 자주 사용한 키워드
+            profileInfoCard.padding(.top, -50).zIndex(1)
             keywordsSection
-            
-            // 설정 섹션
             settingsSection
-            
-            // 액션 버튼들
-            actionButtons
-                .padding(.bottom, 40)
+            actionButtons.padding(.bottom, 40)
         }
         .padding(.horizontal, 20)
     }
@@ -220,22 +197,17 @@ struct MyView: View {
             Text("홍길동")
                 .font(.system(size: 24, weight: .bold))
                 .foregroundColor(.primary)
-            
             VStack(spacing: 8) {
                 profileInfoRow(icon: "studentdesk", title: "학번", value: "20230001")
                 profileInfoRow(icon: "graduationcap.fill", title: "전공", value: "컴퓨터공학")
             }
         }
         .padding(24)
-        .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.08), radius: 15, x: 0, y: 8)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.gray.opacity(0.1), lineWidth: 1)
-        )
+        .background(RoundedRectangle(cornerRadius: 20)
+                        .fill(.white)
+                        .shadow(color: .black.opacity(0.08), radius: 15, x: 0, y: 8))
+        .overlay(RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.gray.opacity(0.1), lineWidth: 1))
     }
     
     private func profileInfoRow(icon: String, title: String, value: String) -> some View {
@@ -244,13 +216,10 @@ struct MyView: View {
                 .font(.system(size: 16, weight: .medium))
                 .foregroundColor(Color(hex: "#A28CF5"))
                 .frame(width: 20)
-            
             Text(title)
                 .font(.system(size: 15, weight: .medium))
                 .foregroundColor(.secondary)
-            
             Spacer()
-            
             Text(value)
                 .font(.system(size: 15, weight: .semibold))
                 .foregroundColor(.primary)
@@ -265,26 +234,21 @@ struct MyView: View {
                 Image(systemName: "tag.fill")
                     .font(.system(size: 16))
                     .foregroundColor(Color(hex: "#A28CF5"))
-                
                 Text("자주 사용한 키워드")
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundColor(.primary)
-                
                 Spacer()
             }
-            
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 8), count: 2), spacing: 8) {
+            LazyVGrid(columns: Array(repeating: .init(.flexible(), spacing: 8), count: 2), spacing: 8) {
                 ForEach(Array(frequentlyUsedKeywords.enumerated()), id: \.offset) { index, keyword in
                     keywordTag(keyword: keyword, index: index)
                 }
             }
         }
         .padding(20)
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 4)
-        )
+        .background(RoundedRectangle(cornerRadius: 16)
+                        .fill(.white)
+                        .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 4))
     }
     
     private func keywordTag(keyword: String, index: Int) -> some View {
@@ -293,16 +257,12 @@ struct MyView: View {
             .foregroundColor(Color(hex: "#A28CF5"))
             .padding(.horizontal, 16)
             .padding(.vertical, 10)
-            .background(
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color(hex: "#A28CF5").opacity(0.1))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color(hex: "#A28CF5").opacity(0.2), lineWidth: 1)
-                    )
-            )
-            .scaleEffect(showKeywords ? 1.0 : 0.8)
-            .opacity(showKeywords ? 1.0 : 0)
+            .background(RoundedRectangle(cornerRadius: 20)
+                            .fill(Color(hex: "#A28CF5").opacity(0.1))
+                            .overlay(RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color(hex: "#A28CF5").opacity(0.2), lineWidth: 1)))
+            .scaleEffect(showKeywords ? 1 : 0.8)
+            .opacity(showKeywords ? 1 : 0)
             .animation(.spring(response: 0.6, dampingFraction: 0.8).delay(Double(index) * 0.1), value: showKeywords)
     }
     
@@ -310,52 +270,30 @@ struct MyView: View {
     private var settingsSection: some View {
         VStack(spacing: 0) {
             modernToggleRow(title: "알람 설정", subtitle: "중요한 알림을 받아보세요", icon: "bell.fill", isOn: $alarmOn)
-            
-            Divider()
-                .padding(.leading, 60)
-            
+            Divider().padding(.leading, 60)
             modernToggleRow(title: "광고 수신", subtitle: "맞춤형 광고 정보", icon: "megaphone.fill", isOn: $adOn)
-            
-            Divider()
-                .padding(.leading, 60)
-            
+            Divider().padding(.leading, 60)
             modernToggleRow(title: "메시지 알람", subtitle: "새로운 메시지 알림", icon: "message.fill", isOn: $messageOn)
         }
         .padding(.vertical, 8)
-        .background(
-            RoundedRectangle(cornerRadius: 16)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 4)
-        )
+        .background(RoundedRectangle(cornerRadius: 16)
+                        .fill(.white)
+                        .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 4))
     }
     
     private func modernToggleRow(title: String, subtitle: String, icon: String, isOn: Binding<Bool>) -> some View {
         HStack(spacing: 16) {
-            // 아이콘
             ZStack {
-                Circle()
-                    .fill(Color(hex: "#A28CF5").opacity(0.1))
-                    .frame(width: 44, height: 44)
-                
+                Circle().fill(Color(hex: "#A28CF5").opacity(0.1)).frame(width: 44, height: 44)
                 Image(systemName: icon)
                     .font(.system(size: 18, weight: .medium))
                     .foregroundColor(Color(hex: "#A28CF5"))
             }
-            
-            // 텍스트
             VStack(alignment: .leading, spacing: 4) {
-                Text(title)
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(.primary)
-                
-                Text(subtitle)
-                    .font(.system(size: 13))
-                    .foregroundColor(.secondary)
+                Text(title).font(.system(size: 16, weight: .semibold)).foregroundColor(.primary)
+                Text(subtitle).font(.system(size: 13)).foregroundColor(.secondary)
             }
-            
             Spacer()
-            
-            // 커스텀 토글
             modernToggle(isOn: isOn)
         }
         .padding(.horizontal, 20)
@@ -368,56 +306,41 @@ struct MyView: View {
                 .fill(isOn.wrappedValue ? Color(hex: "#A28CF5") : Color.gray.opacity(0.3))
                 .frame(width: 50, height: 30)
                 .animation(.easeInOut(duration: 0.2), value: isOn.wrappedValue)
-            
             Circle()
-                .fill(Color.white)
+                .fill(.white)
                 .frame(width: 26, height: 26)
-                .shadow(color: Color.black.opacity(0.2), radius: 2, x: 0, y: 1)
+                .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 1)
                 .offset(x: isOn.wrappedValue ? 10 : -10)
                 .animation(.easeInOut(duration: 0.2), value: isOn.wrappedValue)
         }
-        .onTapGesture {
-            isOn.wrappedValue.toggle()
-        }
+        .onTapGesture { isOn.wrappedValue.toggle() }
     }
     
     // MARK: - 액션 버튼들
     private var actionButtons: some View {
         VStack(spacing: 16) {
-            // 구분선
             Rectangle()
-                .fill(
-                    LinearGradient(
-                        colors: [Color.clear, Color(hex: "#A28CF5").opacity(0.3), Color.clear],
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    )
-                )
+                .fill(LinearGradient(
+                    colors: [.clear, Color(hex: "#A28CF5").opacity(0.3), .clear],
+                    startPoint: .leading,
+                    endPoint: .trailing))
                 .frame(height: 1)
                 .padding(.vertical, 8)
             
-            // 로그아웃 버튼
+            // 로그아웃 버튼 → 별점 다이얼로그
             Button(action: {
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    isLoggedOut = true
-                }
+                showRatingDialog = true
             }) {
                 HStack(spacing: 8) {
                     Image(systemName: "rectangle.portrait.and.arrow.right")
-                        .font(.system(size: 16, weight: .semibold))
-                    
                     Text("로그아웃")
-                        .font(.system(size: 16, weight: .semibold))
                 }
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity)
                 .frame(height: 50)
                 .background(
                     LinearGradient(
-                        gradient: Gradient(colors: [
-                            Color(hex: "#A28CF5"),
-                            Color(hex: "#8B73F5")
-                        ]),
+                        gradient: Gradient(colors: [Color(hex: "#A28CF5"), Color(hex: "#8B73F5")]),
                         startPoint: .leading,
                         endPoint: .trailing
                     )
@@ -430,10 +353,7 @@ struct MyView: View {
             Button(action: {}) {
                 HStack(spacing: 8) {
                     Image(systemName: "person.badge.minus")
-                        .font(.system(size: 16, weight: .medium))
-                    
                     Text("회원탈퇴")
-                        .font(.system(size: 16, weight: .medium))
                 }
                 .foregroundColor(.secondary)
                 .frame(maxWidth: .infinity)
@@ -441,10 +361,8 @@ struct MyView: View {
                 .background(
                     RoundedRectangle(cornerRadius: 25)
                         .fill(Color.gray.opacity(0.1))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 25)
-                                .stroke(Color.gray.opacity(0.2), lineWidth: 1)
-                        )
+                        .overlay(RoundedRectangle(cornerRadius: 25)
+                                    .stroke(Color.gray.opacity(0.2), lineWidth: 1))
                 )
             }
             
@@ -453,7 +371,6 @@ struct MyView: View {
                 Text("회원정보를 완전히 삭제하고 싶으신가요?")
                     .font(.system(size: 13))
                     .foregroundColor(.secondary)
-                
                 Text("고객센터로 문의해주세요")
                     .font(.system(size: 12, weight: .medium))
                     .foregroundColor(Color(hex: "#A28CF5"))
