@@ -45,6 +45,7 @@
 		E7D27CDD2DF0E3F30081C81D /* GlassTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CDC2DF0E3F30081C81D /* GlassTextFieldStyle.swift */; };
 		E7D27CDF2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CDE2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift */; };
 		E7D27CE12DF0E4420081C81D /* SecondaryGlassButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CE02DF0E4420081C81D /* SecondaryGlassButtonStyle.swift */; };
+		E7D27CE32DF561D60081C81D /* RatingDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CE22DF561D60081C81D /* RatingDialog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		E7D27CDC2DF0E3F30081C81D /* GlassTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassTextFieldStyle.swift; sourceTree = "<group>"; };
 		E7D27CDE2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryGlassButtonStyle.swift; sourceTree = "<group>"; };
 		E7D27CE02DF0E4420081C81D /* SecondaryGlassButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryGlassButtonStyle.swift; sourceTree = "<group>"; };
+		E7D27CE22DF561D60081C81D /* RatingDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDialog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 				E7D27CDC2DF0E3F30081C81D /* GlassTextFieldStyle.swift */,
 				E7D27CDE2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift */,
 				E7D27CE02DF0E4420081C81D /* SecondaryGlassButtonStyle.swift */,
+				E7D27CE22DF561D60081C81D /* RatingDialog.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				E7A74EF82DED98A6006338F4 /* DayScheduleView.swift in Sources */,
 				E7A74F162DEFEE25006338F4 /* Message.swift in Sources */,
 				E7A74F0A2DEDBE0B006338F4 /* RoundedCorner.swift in Sources */,
+				E7D27CE32DF561D60081C81D /* RatingDialog.swift in Sources */,
 				E7A74F1F2DF02C64006338F4 /* SigninView.swift in Sources */,
 				E7A74F102DEDC0AD006338F4 /* AddLectureView.swift in Sources */,
 				E7A74EFE2DED9A00006338F4 /* InfoCard.swift in Sources */,
