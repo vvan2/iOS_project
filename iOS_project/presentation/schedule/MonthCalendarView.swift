@@ -1,80 +1,142 @@
 import SwiftUI
 
 struct MonthCalendarView: View {
-    // 날짜별 내용 데이터 예시
     let calendarData: [Int: String] = [
-        1: "회의",
-        5: "운동",
-        10: "프로젝트 마감",
-        15: "여행 준비",
-        20: "친구와 만남",
-        25: "미팅",
-        30: "장보기"
+        1: "회의", 5: "운동", 10: "프로젝트 마감",
+        15: "여행 준비", 20: "친구와 만남", 25: "미팅", 30: "장보기"
     ]
     
-    // 각 달의 시작 요일과 일수를 고려하여 조정
-    let firstDayOfMonth = 1  // 6월은 1일이 금요일에 시작 (요일의 인덱스: 일=0, 월=1, ...)
+    let firstDayOfMonth = 5
     let numberOfDaysInMonth = 30
 
     var body: some View {
-        VStack {
-            Text("6월")
-                .font(.title3)
-                .padding()
+        VStack(spacing: 24) {
+            // Enhanced Month Header
+            HStack {
+                Text("6월 2024")
+                    .font(.system(size: 28, weight: .bold))
+                    .foregroundColor(.primary)
+                
+                Spacer()
+                
+                Button(action: {}) {
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 18, weight: .medium))
+                        .foregroundColor(Color(hex: "#667EEA"))
+                        .frame(width: 32, height: 32)
+                        .background(
+                            Circle()
+                                .fill(Color(hex: "#667EEA").opacity(0.1))
+                        )
+                }
+                
+                Button(action: {}) {
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 18, weight: .medium))
+                        .foregroundColor(Color(hex: "#667EEA"))
+                        .frame(width: 32, height: 32)
+                        .background(
+                            Circle()
+                                .fill(Color(hex: "#667EEA").opacity(0.1))
+                        )
+                }
+            }
+            .padding(.horizontal, 24)
+            .padding(.top, 20)
 
-            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7), spacing: 8) {
-                // 요일 표시
+            // Enhanced Calendar Grid
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7), spacing: 12) {
+                // Day Headers
                 ForEach(["일", "월", "화", "수", "목", "금", "토"], id: \.self) { dayOfWeek in
                     Text(dayOfWeek)
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                        .frame(height: 20)
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.secondary)
+                        .frame(height: 24)
                 }
 
-                // 빈 공간을 채우기 위한 첫 번째 빈 날짜
+                // Empty spaces for month start
                 ForEach(0..<firstDayOfMonth, id: \.self) { _ in
                     Rectangle()
                         .fill(Color.clear)
-                        .frame(height: 80)
+                        .frame(height: 85)
                 }
 
-                // 날짜 표시
+                // Calendar Days
                 ForEach(1...numberOfDaysInMonth, id: \.self) { day in
-                    VStack(spacing: 4) {
-                        // 날짜 표시
+                    VStack(spacing: 6) {
                         Text("\(day)")
-                            .font(.system(size: 16, weight: .medium))
-                            .foregroundColor(.black)
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.primary)
                         
-                        // 해당 날짜에 일정 내용 표시
                         if let event = calendarData[day] {
                             Text(event)
-                                .font(.caption)
-                                .foregroundColor(.purple)
-                                .lineLimit(2)
-                                .multilineTextAlignment(.center)
+                                .font(.system(size: 10, weight: .medium))
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 3)
+                                .background(
+                                    Capsule()
+                                        .fill(
+                                            LinearGradient(
+                                                gradient: Gradient(colors: [
+                                                    Color(hex: "#FF6B6B"),
+                                                    Color(hex: "#FF8E85")
+                                                ]),
+                                                startPoint: .leading,
+                                                endPoint: .trailing
+                                            )
+                                        )
+                                )
+                                .lineLimit(1)
                         } else {
-                            // 내용이 없어도 동일한 공간을 차지하도록 투명한 텍스트 추가
                             Text(" ")
-                                .font(.caption)
+                                .font(.system(size: 10))
                                 .opacity(0)
                         }
                         
                         Spacer()
                     }
-                    .frame(height: 80)  // 모든 셀의 높이를 고정
+                    .frame(height: 85)
                     .frame(maxWidth: .infinity)
                     .background(
-                        RoundedRectangle(cornerRadius: 6)
-                            .fill(Color.gray.opacity(0.1))
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(
+                                day == 15 ? // Today highlight
+                                LinearGradient(
+                                    gradient: Gradient(colors: [
+                                        Color(hex: "#667EEA").opacity(0.1),
+                                        Color(hex: "#764BA2").opacity(0.1)
+                                    ]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                ) :
+                                LinearGradient(
+                                    gradient: Gradient(colors: [
+                                        Color.gray.opacity(0.04),
+                                        Color.gray.opacity(0.08)
+                                    ]),
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
+                            )
                     )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(
+                                day == 15 ? Color(hex: "#667EEA").opacity(0.3) : Color.clear,
+                                lineWidth: 2
+                            )
+                    )
+                    .scaleEffect(day == 15 ? 1.02 : 1.0)
                 }
             }
-            .padding()
+            .padding(.horizontal, 20)
+            
+            Spacer()
         }
     }
 }
 
 #Preview {
-    MonthCalendarView()
+    ScheduleView()
 }

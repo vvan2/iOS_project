@@ -13,76 +13,105 @@ struct ScheduleView: View {
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             VStack(spacing: 0) {
-                // 상단 보라색 배경
+                // Enhanced Header with Glass Effect
                 ZStack(alignment: .topLeading) {
                     LinearGradient(
-                        gradient: Gradient(colors: [Color(hex: "#7A5FFF"), Color(hex: "#BCA5FF")]),
-                        startPoint: .top,
-                        endPoint: .bottom
+                        gradient: Gradient(colors: [
+                            Color(hex: "#667eea"),
+                            Color(hex: "#9080ed"),
+                            Color(hex: "#BCA5FF")
+                        ]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
                     )
-                    .frame(height: 240)
+                    .frame(height: 280)
                     .overlay(
-                        VStack(spacing: 20) {
+                        // Subtle pattern overlay
+                        Rectangle()
+                            .fill(
+                                RadialGradient(
+                                    gradient: Gradient(colors: [
+                                        Color.white.opacity(0.1),
+                                        Color.clear
+                                    ]),
+                                    center: .topTrailing,
+                                    startRadius: 10,
+                                    endRadius: 200
+                                )
+                            )
+                    )
+                    .overlay(
+                        VStack(spacing: 24) {
+                            // Top Icons with better spacing
                             HStack {
-                                Image(systemName: "questionmark.circle")
-                                    .foregroundColor(.white)
-                                    .padding(.leading)
-                                    .padding(.top, 50)
+                                Button(action: {}) {
+                                    Image(systemName: "questionmark.circle.fill")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.white.opacity(0.9))
+                                        .background(
+                                            Circle()
+                                                .fill(Color.white.opacity(0.15))
+                                                .frame(width: 36, height: 36)
+                                        )
+                                }
+                                .padding(.leading, 20)
+                                .padding(.top, 50)
+                                
                                 Spacer()
-                                Image(systemName: "eyes.inverse") // 대체 아이콘
-                                    .foregroundColor(.white)
-                                    .padding(.trailing)
-                                    .padding(.top, 50)
+                                
+                                Button(action: {}) {
+                                    Image(systemName: "bell.fill")
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.white.opacity(0.9))
+                                        .background(
+                                            Circle()
+                                                .fill(Color.white.opacity(0.15))
+                                                .frame(width: 36, height: 36)
+                                        )
+                                }
+                                .padding(.trailing, 20)
+                                .padding(.top, 50)
                             }
 
-                            // 날짜 카드
+                            // Enhanced Date Card with Shadow
                             ZStack {
-                                RoundedRectangle(cornerRadius: 12)
+                                RoundedRectangle(cornerRadius: 16)
                                     .fill(Color.white)
-                                    .frame(width: 180, height: 70)
+                                    .frame(width: 200, height: 80)
+                                    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
 
-                                Text(formattedDate)
-                                    .font(.system(size: 24, weight: .bold))
-                                    .foregroundColor(Color(hex: "#7A5FFF"))
-                            }
-                            .padding(.top, 20)
-
-                            // 탭 선택
-                            HStack {
-                                Button(action: { selectedTab = 0 }) {
-                                    Text("일간 시간표")
-                                        .foregroundColor(selectedTab == 0 ? .white : Color(hex: "#7A5FFF"))
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 6)
-                                        .background(selectedTab == 0 ? Color(hex: "#7A5FFF") : .white)
-                                        .cornerRadius(8)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 8)
-                                                .stroke(Color(hex: "#7A5FFF"), lineWidth: 1)
-                                        )
-                                }
-
-                                Button(action: { selectedTab = 1 }) {
-                                    Text("월간 시간표")
-                                        .foregroundColor(selectedTab == 1 ? .white : Color(hex: "#7A5FFF"))
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 6)
-                                        .background(selectedTab == 1 ? Color(hex: "#7A5FFF") : .white)
-                                        .cornerRadius(8)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 8)
-                                                .stroke(Color(hex: "#7A5FFF"), lineWidth: 1)
-                                        )
+                                VStack(spacing: 4) {
+                                    Text("Today")
+                                        .font(.caption)
+                                        .foregroundColor(.gray)
+                                    Text(formattedDate)
+                                        .font(.system(size: 24, weight: .bold))
+                                        .foregroundColor(Color(hex: "#BCA5FF"))
                                 }
                             }
+                            .padding(.top, 10)
 
+                            // Enhanced Tab Selection
+                            HStack(spacing: 12) {
+                                TabButton(
+                                    title: "일간 시간표",
+                                    isSelected: selectedTab == 0,
+                                    action: { selectedTab = 0 }
+                                )
+                                
+                                TabButton(
+                                    title: "월간 시간표",
+                                    isSelected: selectedTab == 1,
+                                    action: { selectedTab = 1 }
+                                )
+                            }
+                            .padding(.horizontal, 20)
                         }
-                        .padding(.top, 40)
-                        .padding(.bottom, 40)
+                        .padding(.bottom, 30)
                     )
                 }
 
-                // 콘텐츠 영역
+                // Content Area
                 if selectedTab == 0 {
                     DayScheduleView()
                 } else {
@@ -95,4 +124,6 @@ struct ScheduleView: View {
         .ignoresSafeArea(edges: .top)
     }
 }
-
+#Preview{
+    ScheduleView()
+}
