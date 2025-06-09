@@ -400,7 +400,7 @@ struct InfoView: View {
                     .opacity(showCharacter ? 1.0 : 0.0)
                 }
                 .padding(.trailing, 20)
-                .padding(.bottom, 100)
+                .padding(.bottom, 30)
             }
         }
     }
