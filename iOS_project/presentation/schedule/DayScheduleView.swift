@@ -13,7 +13,7 @@ struct DayScheduleView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .leading, spacing: 20) {
-                // Enhanced Day Headers
+                // Day Headers
                 HStack(spacing: 8) {
                     ForEach(days, id: \.self) { day in
                         Text(day)
@@ -38,14 +38,13 @@ struct DayScheduleView: View {
                 }
                 .padding(.horizontal, 20)
 
-                // Enhanced Schedule Grid
+                // Time Blocks Grid
                 ScrollView {
                     HStack(spacing: 8) {
                         ForEach(0..<5) { dayIndex in
                             VStack(spacing: 6) {
                                 ForEach(timeBlocks, id: \.self) { time in
                                     ZStack {
-                                        // Base Time Block with subtle gradient
                                         RoundedRectangle(cornerRadius: 10)
                                             .fill(
                                                 LinearGradient(
@@ -63,8 +62,7 @@ struct DayScheduleView: View {
                                                     .stroke(Color.gray.opacity(0.1), lineWidth: 1)
                                             )
 
-                                        // Lecture Block
-                                        if let lecture = lectures.first(where: { $0.dayIndex == dayIndex && $0.timeRange.contains(time) }) {
+                                        if let lecture = lectures.first(where: { $0.dayIndex == dayIndex && $0.timeRange == time }) {
                                             VStack(spacing: 2) {
                                                 Text(lecture.title)
                                                     .font(.system(size: 11, weight: .bold))
@@ -104,7 +102,7 @@ struct DayScheduleView: View {
             }
             .padding(.top, 20)
 
-            // Enhanced Floating Button
+            // Floating Button
             VStack {
                 Spacer()
                 HStack {
@@ -131,40 +129,16 @@ struct DayScheduleView: View {
                             )
                             .shadow(color: Color(hex: "#667EEA").opacity(0.5), radius: 12, x: 0, y: 6)
                     }
-                    .scaleEffect(showDialog ? 0.95 : 1.0)
-                    .animation(.easeInOut(duration: 0.1), value: showDialog)
                     .padding(.trailing, 24)
                     .padding(.bottom, 24)
                 }
             }
-
-            // Enhanced Dialog
-            if showDialog {
-                Color.black.opacity(0.4)
-                    .ignoresSafeArea()
-                    .onTapGesture { showDialog = false }
-                    .transition(.opacity)
-
-                // Placeholder for AddLectureDialog
-                VStack(spacing: 20) {
-                    Text("강의 추가")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                    
-                    Button("취소") {
-                        showDialog = false
-                    }
-                    .padding()
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
-                }
-                .padding(30)
-                .background(Color.white)
-                .cornerRadius(20)
-                .shadow(radius: 20)
-                .transition(.scale.combined(with: .opacity))
+        }
+        .sheet(isPresented: $showDialog) {
+            AddLectureDialog(isPresented: $showDialog) { newLecture in
+                lectures.append(newLecture)
             }
         }
-        .animation(.easeInOut(duration: 0.3), value: showDialog)
+
     }
 }
