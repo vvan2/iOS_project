@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State private var animateFloat = false
+    @State private var animateWobble = false
     @State private var animateGlow = false
     
     let quickQuestions = [
@@ -52,9 +52,9 @@ struct ChatView: View {
                         Image("img_main_1")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 40, height: 40)  // 이미지 크기 조절
-                            .scaleEffect(animateFloat ? 1.1 : 1.0)
-                            .animation(.easeInOut(duration: 2).repeatForever(autoreverses: true), value: animateFloat)
+                            .frame(width: 40, height: 40)
+//                            .rotationEffect(.degrees(animateWobble ? 8 : -8))
+//                            .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: animateWobble)
                         
                         Text("궁금한 것을 Buggi 한테 물어봐!")
                             .foregroundColor(.white)
@@ -229,7 +229,7 @@ struct ChatView: View {
             //            }
             //        }
             .onAppear {
-                animateFloat = true
+                animateWobble = true
                 animateGlow = true
             }
         }

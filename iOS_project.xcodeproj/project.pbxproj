@@ -46,6 +46,11 @@
 		E7D27CDF2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CDE2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift */; };
 		E7D27CE12DF0E4420081C81D /* SecondaryGlassButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CE02DF0E4420081C81D /* SecondaryGlassButtonStyle.swift */; };
 		E7D27CE32DF561D60081C81D /* RatingDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CE22DF561D60081C81D /* RatingDialog.swift */; };
+		E7D27CE52DF586010081C81D /* GlassInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CE42DF586010081C81D /* GlassInputField.swift */; };
+		E7D27CE72DF5863C0081C81D /* AnimatedProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CE62DF5863C0081C81D /* AnimatedProgressBar.swift */; };
+		E7D27CE92DF5869E0081C81D /* SignUpStep3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CE82DF5869E0081C81D /* SignUpStep3View.swift */; };
+		E7D27CEB2DF586D20081C81D /* GlassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CEA2DF586D20081C81D /* GlassButton.swift */; };
+		E7D27CEF2DF5AA910081C81D /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CEE2DF5AA910081C81D /* TabButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +113,11 @@
 		E7D27CDE2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryGlassButtonStyle.swift; sourceTree = "<group>"; };
 		E7D27CE02DF0E4420081C81D /* SecondaryGlassButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryGlassButtonStyle.swift; sourceTree = "<group>"; };
 		E7D27CE22DF561D60081C81D /* RatingDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingDialog.swift; sourceTree = "<group>"; };
+		E7D27CE42DF586010081C81D /* GlassInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassInputField.swift; sourceTree = "<group>"; };
+		E7D27CE62DF5863C0081C81D /* AnimatedProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedProgressBar.swift; sourceTree = "<group>"; };
+		E7D27CE82DF5869E0081C81D /* SignUpStep3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep3View.swift; sourceTree = "<group>"; };
+		E7D27CEA2DF586D20081C81D /* GlassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassButton.swift; sourceTree = "<group>"; };
+		E7D27CEE2DF5AA910081C81D /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,6 +321,7 @@
 		E7A74F2B2DF0C07D006338F4 /* schedule */ = {
 			isa = PBXGroup;
 			children = (
+				E7D27CED2DF5AA7E0081C81D /* component */,
 				E7A74EF72DED98A6006338F4 /* DayScheduleView.swift */,
 				E7A74EF52DED9873006338F4 /* ScheduleView.swift */,
 				E7A74EF92DED98CA006338F4 /* MonthCalendarView.swift */,
@@ -329,8 +340,10 @@
 		E7A74F2D2DF0C0D7006338F4 /* signup */ = {
 			isa = PBXGroup;
 			children = (
+				E7D27CEC2DF5A1B40081C81D /* component */,
 				E7A74F222DF0331E006338F4 /* SignUpStep2View.swift */,
 				E7A74F202DF03305006338F4 /* SignUpStep1View.swift */,
+				E7D27CE82DF5869E0081C81D /* SignUpStep3View.swift */,
 			);
 			path = signup;
 			sourceTree = "<group>";
@@ -341,6 +354,24 @@
 				E7A74EF12DED94A1006338F4 /* SplashView.swift */,
 			);
 			path = splash;
+			sourceTree = "<group>";
+		};
+		E7D27CEC2DF5A1B40081C81D /* component */ = {
+			isa = PBXGroup;
+			children = (
+				E7D27CE62DF5863C0081C81D /* AnimatedProgressBar.swift */,
+				E7D27CE42DF586010081C81D /* GlassInputField.swift */,
+				E7D27CEA2DF586D20081C81D /* GlassButton.swift */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
+		E7D27CED2DF5AA7E0081C81D /* component */ = {
+			isa = PBXGroup;
+			children = (
+				E7D27CEE2DF5AA910081C81D /* TabButton.swift */,
+			);
+			path = component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,15 +504,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7D27CEB2DF586D20081C81D /* GlassButton.swift in Sources */,
 				E7A74EFC2DED99E3006338F4 /* InfoView.swift in Sources */,
 				E7D27CD32DF0D6120081C81D /* FeatureIcon.swift in Sources */,
 				E7A74EF62DED9873006338F4 /* ScheduleView.swift in Sources */,
 				E7D27CE12DF0E4420081C81D /* SecondaryGlassButtonStyle.swift in Sources */,
 				E7D27CDF2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift in Sources */,
+				E7D27CE52DF586010081C81D /* GlassInputField.swift in Sources */,
 				E7A74F142DEDD102006338F4 /* InfoCharacterView.swift in Sources */,
 				E7A74F042DED9B1D006338F4 /* ToggleRow.swift in Sources */,
+				E7D27CEF2DF5AA910081C81D /* TabButton.swift in Sources */,
 				E7A74F022DED9B05006338F4 /* MyView.swift in Sources */,
 				E7A74EF02DED946F006338F4 /* HomeView.swift in Sources */,
+				E7D27CE92DF5869E0081C81D /* SignUpStep3View.swift in Sources */,
 				E7A74EF82DED98A6006338F4 /* DayScheduleView.swift in Sources */,
 				E7A74F162DEFEE25006338F4 /* Message.swift in Sources */,
 				E7A74F0A2DEDBE0B006338F4 /* RoundedCorner.swift in Sources */,
@@ -505,6 +540,7 @@
 				E7A74F192DEFEE5A006338F4 /* ChatViewModel.swift in Sources */,
 				E7A74F212DF03305006338F4 /* SignUpStep1View.swift in Sources */,
 				E7A74EC62DED9325006338F4 /* iOS_projectApp.swift in Sources */,
+				E7D27CE72DF5863C0081C81D /* AnimatedProgressBar.swift in Sources */,
 				E7D27CD72DF0D71F0081C81D /* CardItem.swift in Sources */,
 				E7A74F232DF0331E006338F4 /* SignUpStep2View.swift in Sources */,
 			);
