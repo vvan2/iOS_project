@@ -60,12 +60,13 @@ struct AddLectureDialog: View {
                     let newLecture = Lecture(
                         title: title,
                         professor: professor,
-                        timeRange: selectedTime,
                         dayIndex: selectedDay,
+                        timeRange: selectedTime,
                         colorHex: colors.randomElement() ?? "#667eea"
                     )
                     onAdd(newLecture)
                 }
+
                 .buttonStyle(PrimaryGlassButtonStyle())
                 .disabled(title.isEmpty || professor.isEmpty)
             }
