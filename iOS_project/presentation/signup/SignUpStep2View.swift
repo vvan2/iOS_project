@@ -9,6 +9,9 @@ struct SignUpStep2View: View {
     @State private var birthDate = Date()
     @State private var showDatePicker = false
     @State private var showNextStep = false
+    
+    // NavigationPath 바인딩 추가
+    @Binding var navigationPath: NavigationPath
 
     let genders = ["남성", "여성", "선택안함"]
 
@@ -21,8 +24,6 @@ struct SignUpStep2View: View {
     let color2 = Color(hex: "#A28CF5")
     let color3 = Color(hex: "#B8A9FF")
     let color4 = Color(hex: "#D9D2FB")
-    
-   
 
     var body: some View {
         ZStack {
@@ -46,7 +47,7 @@ struct SignUpStep2View: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $showNextStep) {
-            SignUpStep3View()
+            SignUpStep3View(navigationPath: $navigationPath)
         }
         .sheet(isPresented: $showDatePicker) {
             datePickerSheet
@@ -292,7 +293,6 @@ struct SignUpStep2View: View {
             )
     }
 
-    
     private var nextButtonBackground: some View {
         RoundedRectangle(cornerRadius: 16)
             .fill(isFormValid ? .regularMaterial : .ultraThinMaterial)
@@ -313,6 +313,8 @@ extension DateFormatter {
         return formatter
     }()
 }
-#Preview{
-    SignUpStep2View()
+
+#Preview {
+    @State var path = NavigationPath()
+    return SignUpStep2View(navigationPath: $path)
 }
