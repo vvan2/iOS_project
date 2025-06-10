@@ -90,7 +90,7 @@
     <td width="25%"><img src="https://github.com/user-attachments/assets/41ece110-25a4-45a4-bd17-ef2934784dfa" width="100%" /></td>
     <td width="25%"><img src="https://github.com/user-attachments/assets/76d76fc0-2adb-4e3b-af59-d909edcbb0fa" width="100%" /></td>
     <td width="25%"><img src="https://github.com/user-attachments/assets/cb04465d-e464-4b43-a667-7cc4d1759ecb" width="100%" /></td>
-    <td width="25%"><img src="https://github.com/user-attachments/assets/78ad5c62-3c01-41cb-86be-da0796a71b8f" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/4d2e89b7-a05d-40ff-9ddc-affdcf906e55" width="100%" /></td>
   </tr>
   <tr>
     <td align="center"><b>정보</b></td>
@@ -99,6 +99,7 @@
     <td align="center"><b>회원가입</b></td>
   </tr>
 </table>
+
 
 
 ### 8. 발표영상
