@@ -71,6 +71,34 @@
 [👀 Commit Convention](https://sopt-official.notion.site/commitConvention-1ee1e48dd9608085955fce4f5ec0af24)<br>
 
 ### 7. 시연영상
+<table>
+  <tr>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/11b357a5-e5a7-49b0-b9aa-fc35e13eeabd" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/08e9ad42-7f1b-46a2-bfb1-ff426471b25b" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/ea96653c-70d7-47c1-b26c-4f77d8111443" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/ab697270-2704-4696-a489-bd64beb73227" width="100%" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>스플래시+로그인</b></td>
+    <td align="center"><b>홈</b></td>
+    <td align="center"><b>일정(일간)</b></td>
+    <td align="center"><b>일정(월간)</b></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/41ece110-25a4-45a4-bd17-ef2934784dfa" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/76d76fc0-2adb-4e3b-af59-d909edcbb0fa" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/cb04465d-e464-4b43-a667-7cc4d1759ecb" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/78ad5c62-3c01-41cb-86be-da0796a71b8f" width="100%" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>정보</b></td>
+    <td align="center"><b>챗봇</b></td>
+    <td align="center"><b>마이페이지</b></td>
+    <td align="center"><b>회원가입</b></td>
+  </tr>
+</table>
 
 
 ### 8. 발표영상
