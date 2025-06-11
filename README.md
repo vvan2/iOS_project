@@ -74,13 +74,13 @@
 <table>
   <tr>
     <td width="25%"><img src="https://github.com/user-attachments/assets/11b357a5-e5a7-49b0-b9aa-fc35e13eeabd" width="100%" /></td>
-    <td width="25%"><img src="https://github.com/user-attachments/assets/08e9ad42-7f1b-46a2-bfb1-ff426471b25b" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/7a063aa0-7d55-47ad-b4c6-5c7d5d7f445e" width="100%" /></td>
     <td width="25%"><img src="https://github.com/user-attachments/assets/ea96653c-70d7-47c1-b26c-4f77d8111443" width="100%" /></td>
     <td width="25%"><img src="https://github.com/user-attachments/assets/ab697270-2704-4696-a489-bd64beb73227" width="100%" /></td>
   </tr>
   <tr>
     <td align="center"><b>스플래시+로그인</b></td>
-    <td align="center"><b>홈</b></td>
+    <td align="center"><b>홈+출석</b></td>
     <td align="center"><b>일정(일간)</b></td>
     <td align="center"><b>일정(월간)</b></td>
   </tr>
@@ -99,6 +99,7 @@
     <td align="center"><b>회원가입</b></td>
   </tr>
 </table>
+
 
 
 
