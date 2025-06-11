@@ -8,136 +8,158 @@ struct MonthCalendarView: View {
 
     let firstDayOfMonth = 1
     let numberOfDaysInMonth = 30
+    
+    @State private var selectedDay: Int? = nil
+    @State private var showEventDialog = false
 
     var body: some View {
-        VStack(spacing: 24) {
-            // Enhanced Month Header
-            HStack {
-                Text("6월 2024")
-                    .font(.system(size: 28, weight: .bold))
-                    .foregroundColor(.primary)
+        ZStack {
+            VStack(spacing: 24) {
+                // Enhanced Month Header
+                HStack {
+                    Text("6월 2024")
+                        .font(.system(size: 28, weight: .bold))
+                        .foregroundColor(.primary)
 
-                Spacer()
+                    Spacer()
 
-                Button(action: {}) {
-                    Image(systemName: "chevron.left")
-                        .font(.system(size: 18, weight: .medium))
-                        .foregroundColor(Color(hex: "#667EEA"))
-                        .frame(width: 32, height: 32)
-                        .background(
-                            Circle()
-                                .fill(Color(hex: "#667EEA").opacity(0.1))
-                        )
+                    Button(action: {}) {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 18, weight: .medium))
+                            .foregroundColor(Color(hex: "#667EEA"))
+                            .frame(width: 32, height: 32)
+                            .background(
+                                Circle()
+                                    .fill(Color(hex: "#667EEA").opacity(0.1))
+                            )
+                    }
+
+                    Button(action: {}) {
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 18, weight: .medium))
+                            .foregroundColor(Color(hex: "#667EEA"))
+                            .frame(width: 32, height: 32)
+                            .background(
+                                Circle()
+                                    .fill(Color(hex: "#667EEA").opacity(0.1))
+                            )
+                    }
                 }
+                .padding(.horizontal, 24)
+                .padding(.top, 20)
 
-                Button(action: {}) {
-                    Image(systemName: "chevron.right")
-                        .font(.system(size: 18, weight: .medium))
-                        .foregroundColor(Color(hex: "#667EEA"))
-                        .frame(width: 32, height: 32)
-                        .background(
-                            Circle()
-                                .fill(Color(hex: "#667EEA").opacity(0.1))
-                        )
+                // ScrollView 추가
+                ScrollView {
+                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7), spacing: 12) {
+                        // Day Headers
+                        ForEach(["일", "월", "화", "수", "목", "금", "토"], id: \.self) { dayOfWeek in
+                            Text(dayOfWeek)
+                                .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(.secondary)
+                                .frame(height: 24)
+                        }
+
+                        // Empty spaces for month start
+                        ForEach(0..<firstDayOfMonth, id: \.self) { _ in
+                            Rectangle()
+                                .fill(Color.clear)
+                                .frame(height: 85)
+                        }
+
+                        // Calendar Days
+                        ForEach(1...numberOfDaysInMonth, id: \.self) { day in
+                            VStack(spacing: 6) {
+                                Text("\(day)")
+                                    .font(.system(size: 16, weight: .semibold))
+                                    .foregroundColor(.primary)
+
+                                if let event = calendarData[day] {
+                                    Text(event)
+                                        .font(.system(size: 10, weight: .medium))
+                                        .foregroundColor(.white)
+                                        .padding(.horizontal, 6)
+                                        .padding(.vertical, 3)
+                                        .background(
+                                            Capsule()
+                                                .fill(
+                                                    LinearGradient(
+                                                        gradient: Gradient(colors: [
+                                                            Color(hex: "#FF6B6B"),
+                                                            Color(hex: "#FF8E85")
+                                                        ]),
+                                                        startPoint: .leading,
+                                                        endPoint: .trailing
+                                                    )
+                                                )
+                                        )
+                                        .lineLimit(1)
+                                } else {
+                                    Text(" ")
+                                        .font(.system(size: 10))
+                                        .opacity(0)
+                                }
+
+                                Spacer()
+                            }
+                            .frame(height: 85)
+                            .frame(maxWidth: .infinity)
+                            .background(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .fill(
+                                        day == 15 ?
+                                        LinearGradient(
+                                            gradient: Gradient(colors: [
+                                                Color(hex: "#667EEA").opacity(0.1),
+                                                Color(hex: "#764BA2").opacity(0.1)
+                                            ]),
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing
+                                        ) :
+                                        LinearGradient(
+                                            gradient: Gradient(colors: [
+                                                Color.gray.opacity(0.04),
+                                                Color.gray.opacity(0.08)
+                                            ]),
+                                            startPoint: .top,
+                                            endPoint: .bottom
+                                        )
+                                    )
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(
+                                        day == 15 ? Color(hex: "#667EEA").opacity(0.3) : Color.clear,
+                                        lineWidth: 2
+                                    )
+                            )
+                            .scaleEffect(day == 15 ? 1.02 : 1.0)
+                            .onTapGesture {
+                                selectedDay = day
+                                showEventDialog = true
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 40)
                 }
             }
-            .padding(.horizontal, 24)
-            .padding(.top, 20)
-
-            // ⬇️ ScrollView 추가
-            ScrollView {
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 7), spacing: 12) {
-                    // Day Headers
-                    ForEach(["일", "월", "화", "수", "목", "금", "토"], id: \.self) { dayOfWeek in
-                        Text(dayOfWeek)
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(.secondary)
-                            .frame(height: 24)
+            
+            // Event Dialog Overlay
+            if showEventDialog {
+                Color.black.opacity(0.4)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        showEventDialog = false
                     }
-
-                    // Empty spaces for month start
-                    ForEach(0..<firstDayOfMonth, id: \.self) { _ in
-                        Rectangle()
-                            .fill(Color.clear)
-                            .frame(height: 85)
-                    }
-
-                    // Calendar Days
-                    ForEach(1...numberOfDaysInMonth, id: \.self) { day in
-                        VStack(spacing: 6) {
-                            Text("\(day)")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundColor(.primary)
-
-                            if let event = calendarData[day] {
-                                Text(event)
-                                    .font(.system(size: 10, weight: .medium))
-                                    .foregroundColor(.white)
-                                    .padding(.horizontal, 6)
-                                    .padding(.vertical, 3)
-                                    .background(
-                                        Capsule()
-                                            .fill(
-                                                LinearGradient(
-                                                    gradient: Gradient(colors: [
-                                                        Color(hex: "#FF6B6B"),
-                                                        Color(hex: "#FF8E85")
-                                                    ]),
-                                                    startPoint: .leading,
-                                                    endPoint: .trailing
-                                                )
-                                            )
-                                    )
-                                    .lineLimit(1)
-                            } else {
-                                Text(" ")
-                                    .font(.system(size: 10))
-                                    .opacity(0)
-                            }
-
-                            Spacer()
-                        }
-                        .frame(height: 85)
-                        .frame(maxWidth: .infinity)
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(
-                                    day == 15 ?
-                                    LinearGradient(
-                                        gradient: Gradient(colors: [
-                                            Color(hex: "#667EEA").opacity(0.1),
-                                            Color(hex: "#764BA2").opacity(0.1)
-                                        ]),
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    ) :
-                                    LinearGradient(
-                                        gradient: Gradient(colors: [
-                                            Color.gray.opacity(0.04),
-                                            Color.gray.opacity(0.08)
-                                        ]),
-                                        startPoint: .top,
-                                        endPoint: .bottom
-                                    )
-                                )
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(
-                                    day == 15 ? Color(hex: "#667EEA").opacity(0.3) : Color.clear,
-                                    lineWidth: 2
-                                )
-                        )
-                        .scaleEffect(day == 15 ? 1.02 : 1.0)
-                    }
-                }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 40)
+                
+                EventDialogView(
+                    day: selectedDay ?? 1,
+                    event: calendarData[selectedDay ?? 1],
+                    isShowing: $showEventDialog
+                )
+                .transition(.scale.combined(with: .opacity))
+                .animation(.spring(response: 0.5, dampingFraction: 0.8), value: showEventDialog)
             }
         }
     }
-}
-
-#Preview {
-    MonthCalendarView()
 }

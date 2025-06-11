@@ -5,6 +5,8 @@ struct DayScheduleView: View {
     let timeBlocks = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"]
 
     @State private var showDialog = false
+    @State private var showLectureDialog = false
+    @State private var selectedLecture: Lecture? = nil
     @State private var lectures: [Lecture] = [
         Lecture(title: "iOS 개발", professor: "김교수", dayIndex: 0, timeRange: "09:00", colorHex: "#FF6B6B"),
         Lecture(title: "데이터베이스", professor: "이교수", dayIndex: 2, timeRange: "11:00", colorHex: "#4ECDC4")
@@ -88,6 +90,12 @@ struct DayScheduleView: View {
                                                     .shadow(color: Color(hex: lecture.colorHex).opacity(0.4), radius: 4, x: 0, y: 2)
                                             )
                                             .foregroundColor(.white)
+                                            .onTapGesture {
+                                                selectedLecture = lecture
+                                                withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
+                                                    showLectureDialog = true
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -101,6 +109,8 @@ struct DayScheduleView: View {
                 Spacer()
             }
             .padding(.top, 20)
+            .blur(radius: (showDialog || showLectureDialog) ? 2 : 0)
+            .scaleEffect((showDialog || showLectureDialog) ? 0.95 : 1.0)
 
             // Floating Button
             VStack {
@@ -108,7 +118,9 @@ struct DayScheduleView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        showDialog = true
+                        withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
+                            showDialog = true
+                        }
                     }) {
                         Image(systemName: "plus")
                             .font(.system(size: 24, weight: .bold))
@@ -129,16 +141,42 @@ struct DayScheduleView: View {
                             )
                             .shadow(color: Color(hex: "#667EEA").opacity(0.5), radius: 12, x: 0, y: 6)
                     }
+                    .scaleEffect((showDialog || showLectureDialog) ? 0.9 : 1.0)
                     .padding(.trailing, 24)
                     .padding(.bottom, 24)
                 }
             }
-        }
-        .sheet(isPresented: $showDialog) {
-            AddLectureDialog(isPresented: $showDialog) { newLecture in
-                lectures.append(newLecture)
+            
+            // Add Lecture Dialog Overlay
+            if showDialog {
+                AddLectureDialog(isPresented: $showDialog) { newLecture in
+                    lectures.append(newLecture)
+                }
+                .transition(.asymmetric(
+                    insertion: .scale(scale: 0.8).combined(with: .opacity),
+                    removal: .scale(scale: 0.8).combined(with: .opacity)
+                ))
+            }
+            
+            // Lecture Detail Dialog Overlay
+            if showLectureDialog, let lecture = selectedLecture {
+                Color.black.opacity(0.4)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
+                            showLectureDialog = false
+                        }
+                    }
+                
+                LectureDetailDialog(
+                    lecture: lecture,
+                    day: days[lecture.dayIndex],
+                    isShowing: $showLectureDialog
+                )
+                .transition(.scale.combined(with: .opacity))
             }
         }
-
+        .animation(.spring(response: 0.5, dampingFraction: 0.8), value: showDialog)
+        .animation(.spring(response: 0.5, dampingFraction: 0.8), value: showLectureDialog)
     }
 }
