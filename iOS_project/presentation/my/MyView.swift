@@ -9,6 +9,7 @@ struct MyView: View {
     @State private var messageOn = true
     
     // 별점 다이얼로그 상태만 유지 (로그아웃 상태 제거)
+    @State private var showSettingsToast = false
     @State private var showRatingDialog = false
     @State private var selectedRating: Int = 0
     
@@ -36,6 +37,18 @@ struct MyView: View {
                     )
                 )
                 .ignoresSafeArea(edges: .top)
+                
+                if showSettingsToast {
+                    Text("설정 기능은 준비 중입니다.")
+                        .font(.system(size: 14, weight: .medium))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 10)
+                        .background(Color.black.opacity(0.6))
+                        .cornerRadius(12)
+                        .padding(.top, geometry.safeAreaInsets.top + 16)
+                        .transition(.move(edge: .top).combined(with: .opacity))
+                }
             }
             .navigationBarHidden(true)
         }
@@ -105,7 +118,17 @@ struct MyView: View {
                             .foregroundColor(.white.opacity(0.8))
                     }
                     Spacer()
-                    Button(action: {}) {
+                    Button(action: {
+                        withAnimation(.easeInOut) {
+                            showSettingsToast = true
+                        }
+                        // 2초 후에 자동으로 숨기기
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            withAnimation(.easeInOut) {
+                                showSettingsToast = false
+                            }
+                        }
+                    }) {
                         Image(systemName: "gearshape.fill")
                             .font(.system(size: 20))
                             .foregroundColor(.white.opacity(0.8))
