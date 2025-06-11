@@ -51,6 +51,9 @@
 		E7D27CE92DF5869E0081C81D /* SignUpStep3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CE82DF5869E0081C81D /* SignUpStep3View.swift */; };
 		E7D27CEB2DF586D20081C81D /* GlassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CEA2DF586D20081C81D /* GlassButton.swift */; };
 		E7D27CEF2DF5AA910081C81D /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CEE2DF5AA910081C81D /* TabButton.swift */; };
+		E7D27CF12DF76DD60081C81D /* EventDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CF02DF76DD60081C81D /* EventDialogView.swift */; };
+		E7D27CF32DF7740D0081C81D /* DetialRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CF22DF7740D0081C81D /* DetialRow.swift */; };
+		E7D27CF62DF7744D0081C81D /* LectureDetailDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CF52DF7744D0081C81D /* LectureDetailDialog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +121,9 @@
 		E7D27CE82DF5869E0081C81D /* SignUpStep3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep3View.swift; sourceTree = "<group>"; };
 		E7D27CEA2DF586D20081C81D /* GlassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassButton.swift; sourceTree = "<group>"; };
 		E7D27CEE2DF5AA910081C81D /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
+		E7D27CF02DF76DD60081C81D /* EventDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDialogView.swift; sourceTree = "<group>"; };
+		E7D27CF22DF7740D0081C81D /* DetialRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetialRow.swift; sourceTree = "<group>"; };
+		E7D27CF52DF7744D0081C81D /* LectureDetailDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureDetailDialog.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +376,9 @@
 			isa = PBXGroup;
 			children = (
 				E7D27CEE2DF5AA910081C81D /* TabButton.swift */,
+				E7D27CF02DF76DD60081C81D /* EventDialogView.swift */,
+				E7D27CF22DF7740D0081C81D /* DetialRow.swift */,
+				E7D27CF52DF7744D0081C81D /* LectureDetailDialog.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -507,6 +516,7 @@
 				E7D27CEB2DF586D20081C81D /* GlassButton.swift in Sources */,
 				E7A74EFC2DED99E3006338F4 /* InfoView.swift in Sources */,
 				E7D27CD32DF0D6120081C81D /* FeatureIcon.swift in Sources */,
+				E7D27CF62DF7744D0081C81D /* LectureDetailDialog.swift in Sources */,
 				E7A74EF62DED9873006338F4 /* ScheduleView.swift in Sources */,
 				E7D27CE12DF0E4420081C81D /* SecondaryGlassButtonStyle.swift in Sources */,
 				E7D27CDF2DF0E4180081C81D /* PrimaryGlassButtonStyle.swift in Sources */,
@@ -525,6 +535,7 @@
 				E7A74F102DEDC0AD006338F4 /* AddLectureView.swift in Sources */,
 				E7A74EFE2DED9A00006338F4 /* InfoCard.swift in Sources */,
 				E7D27CDB2DF0E1180081C81D /* CardButtonStyle.swift in Sources */,
+				E7D27CF12DF76DD60081C81D /* EventDialogView.swift in Sources */,
 				E7A74F1B2DEFEE89006338F4 /* ChatRoomView.swift in Sources */,
 				E7A74F082DED9C10006338F4 /* MainTabView.swift in Sources */,
 				E7D27CD92DF0D7320081C81D /* NotificationItem.swift in Sources */,
@@ -537,6 +548,7 @@
 				E7A74F1D2DF002CC006338F4 /* getBotResponse.swift in Sources */,
 				E7A74EF42DED96FF006338F4 /* Color.swift in Sources */,
 				E7A74EF22DED94A1006338F4 /* SplashView.swift in Sources */,
+				E7D27CF32DF7740D0081C81D /* DetialRow.swift in Sources */,
 				E7A74F192DEFEE5A006338F4 /* ChatViewModel.swift in Sources */,
 				E7A74F212DF03305006338F4 /* SignUpStep1View.swift in Sources */,
 				E7A74EC62DED9325006338F4 /* iOS_projectApp.swift in Sources */,

@@ -218,4 +218,3 @@ struct SignUpStep3View: View {
     @State var path = NavigationPath()
     return SignUpStep3View(navigationPath: $path)
 }
-
