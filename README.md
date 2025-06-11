@@ -1,4 +1,5 @@
 ## iOS programming 
+![image](https://github.com/user-attachments/assets/7f7434d3-8a02-43a5-aa5b-9b59f0ab6de2)
 
 # BuggiMate - 캠퍼스 라이프 도우미 앱
 
@@ -6,7 +7,7 @@
 
 ---
 
-## 1. 기획 배경
+## 1. 📄 기획 배경
 
 현대 대학생들은 다양한 플랫폼에서 분산된 정보를 관리하며 학업과 일상생활을 병행하고 있습니다.  
 시간표, 할 일 목록, 학교 공지사항, 학식 정보 등 필수적인 캠퍼스 생활 정보가 각각 다른 앱이나 웹사이트에 흩어져 있어, 이를 하나의 통합된 환경에서 확인하려는 수요가 점점 증가하고 있습니다.  
@@ -14,7 +15,7 @@
 
 ---
 
-## 2. 서비스 소개
+## 2. 📱 서비스 소개
 
 **BuggiMate**는 **SwiftUI** 기반으로 개발된 **iOS** 전용 스마트 캠퍼스 라이프 도우미 앱입니다.  
 대학생들이 자주 사용하는 기능들을 통합하여 제공하며, 학업 및 일상 관리를 보다 효율적으로 지원합니다.  
@@ -22,7 +23,7 @@
 
 ---
 
-## 3. 서비스 구조
+## 3. 🖥️ 서비스 구조
 
 **BuggiMate**는 클라이언트 단독으로 운영되는 iOS 앱으로, SwiftUI를 기반으로 합니다.
 
@@ -36,13 +37,13 @@
 
 ### 3.2. 기술 스택
 - **프론트엔드**: SwiftUI
-- **아키텍처**: MVVM 패턴 적용
+- **아키텍처**: MVVM 패턴 적용 + Clean 아키텍쳐
 - **저장 방식**: UserDefaults 기반 로컬 저장소
 - **UI 요소**: Grid, List, ScrollView, TabView 등 활용
 
 ---
 
-## 4. 비즈니스 모델
+## 4. 📊 비즈니스 모델
 
 현재 **BuggiMate**는 개인 학습 및 실습 목적의 단독 클라이언트 앱으로 운영되며, 향후 발전 방향으로는 다음과 같은 비즈니스 모델 전개가 가능합니다.
 
@@ -59,13 +60,46 @@
 
 ---
 
-### 5. IA
+### 5. ⚙️ IA
 ![image](https://github.com/user-attachments/assets/5f85c2c7-5ada-4e6a-be2c-97b7181904e4)
 
 
-### 6. Convention
+### 6. 📔 Convention
+[💻 Code Convention](https://sopt-official.notion.site/codeConvention-1ee1e48dd960802b9709edcbe2244515)<br>
+[📝 Branch Convention + Issue Convention](https://sopt-official.notion.site/branchConvention-issueConvention-1ee1e48dd960806caf13f98eaa107903)<br>
+[👀 PR Convention](https://sopt-official.notion.site/pullRequestConvention-1ee1e48dd9608040a86cdc3e783ee7f5)<br>
+[👀 Commit Convention](https://sopt-official.notion.site/commitConvention-1ee1e48dd9608085955fce4f5ec0af24)<br>
 
 ### 7. 시연영상
+<table>
+  <tr>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/11b357a5-e5a7-49b0-b9aa-fc35e13eeabd" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/08e9ad42-7f1b-46a2-bfb1-ff426471b25b" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/ea96653c-70d7-47c1-b26c-4f77d8111443" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/ab697270-2704-4696-a489-bd64beb73227" width="100%" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>스플래시+로그인</b></td>
+    <td align="center"><b>홈</b></td>
+    <td align="center"><b>일정(일간)</b></td>
+    <td align="center"><b>일정(월간)</b></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/41ece110-25a4-45a4-bd17-ef2934784dfa" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/76d76fc0-2adb-4e3b-af59-d909edcbb0fa" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/cb04465d-e464-4b43-a667-7cc4d1759ecb" width="100%" /></td>
+    <td width="25%"><img src="https://github.com/user-attachments/assets/4d2e89b7-a05d-40ff-9ddc-affdcf906e55" width="100%" /></td>
+  </tr>
+  <tr>
+    <td align="center"><b>정보</b></td>
+    <td align="center"><b>챗봇</b></td>
+    <td align="center"><b>마이페이지</b></td>
+    <td align="center"><b>회원가입</b></td>
+  </tr>
+</table>
+
 
 
 ### 8. 발표영상
