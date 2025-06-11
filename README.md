@@ -1,4 +1,4 @@
-## iOS programming 
+## iOS programming - 1인 기말 프로젝트
 ![image](https://github.com/user-attachments/assets/7f7434d3-8a02-43a5-aa5b-9b59f0ab6de2)
 
 # BuggiMate - 캠퍼스 라이프 도우미 앱
