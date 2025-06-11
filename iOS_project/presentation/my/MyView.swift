@@ -1,13 +1,14 @@
 import SwiftUI
 
 struct MyView: View {
+    let onLogout: () -> Void
+    
     // MARK: - 상태 변수
     @State private var alarmOn = true
     @State private var adOn = true
     @State private var messageOn = true
     
-    // 로그아웃 & 별점 다이얼로그 상태
-    @State private var isLoggedOut = false
+    // 별점 다이얼로그 상태만 유지 (로그아웃 상태 제거)
     @State private var showRatingDialog = false
     @State private var selectedRating: Int = 0
     
@@ -50,26 +51,23 @@ struct MyView: View {
                 }
             }
         }
-        // 별점 선택 다이얼로그
+        // 별점 선택 다이얼로그만 유지
         .sheet(isPresented: $showRatingDialog) {
             RatingDialog(
                 rating: $selectedRating,
                 onConfirm: {
                     showRatingDialog = false
-                    isLoggedOut = true
+                    // 별점 제출 후 바로 로그아웃 처리
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        onLogout()
+                    }
                 }
             )
         }
-        // 로그아웃 후 로그인 화면 전체 모달로 전환
-        .fullScreenCover(isPresented: $isLoggedOut) {
-            SignInView(onLogin: {
-                // 로그인 후 이 뷰로 복귀
-                isLoggedOut = false
-            })
-        }
+        // fullScreenCover 제거
     }
     
-    // MARK: - 헤더 섹션
+    // MARK: - 헤더 섹션 (기존과 동일)
     private func headerSection(geometry: GeometryProxy) -> some View {
         ZStack(alignment: .topLeading) {
             // 배경 그라디언트
@@ -126,7 +124,7 @@ struct MyView: View {
         }
     }
     
-    // MARK: - 장식적 요소
+    // MARK: - 장식적 요소 (기존과 동일)
     private var decorativeElements: some View {
         ZStack {
             Circle().fill(Color.white.opacity(0.1)).frame(width: 120, height: 120).offset(x: -50, y: 50)
@@ -140,7 +138,7 @@ struct MyView: View {
         }
     }
     
-    // MARK: - 프로필 아바타
+    // MARK: - 프로필 아바타 (기존과 동일)
     private var profileAvatar: some View {
         ZStack {
             Circle()
@@ -180,7 +178,7 @@ struct MyView: View {
         .padding(.bottom, 20)
     }
     
-    // MARK: - 메인 컨텐츠
+    // MARK: - 메인 컨텐츠 (기존과 동일)
     private var mainContent: some View {
         VStack(spacing: 24) {
             profileInfoCard.padding(.top, -50).zIndex(1)
@@ -191,7 +189,7 @@ struct MyView: View {
         .padding(.horizontal, 20)
     }
     
-    // MARK: - 프로필 정보 카드
+    // MARK: - 프로필 정보 카드 (기존과 동일)
     private var profileInfoCard: some View {
         VStack(spacing: 16) {
             Text("홍길동")
@@ -227,7 +225,7 @@ struct MyView: View {
         .padding(.horizontal, 4)
     }
     
-    // MARK: - 키워드 섹션
+    // MARK: - 키워드 섹션 (기존과 동일)
     private var keywordsSection: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
@@ -266,7 +264,7 @@ struct MyView: View {
             .animation(.spring(response: 0.6, dampingFraction: 0.8).delay(Double(index) * 0.1), value: showKeywords)
     }
     
-    // MARK: - 설정 섹션
+    // MARK: - 설정 섹션 (기존과 동일)
     private var settingsSection: some View {
         VStack(spacing: 0) {
             modernToggleRow(title: "알람 설정", subtitle: "중요한 알림을 받아보세요", icon: "bell.fill", isOn: $alarmOn)
@@ -316,7 +314,7 @@ struct MyView: View {
         .onTapGesture { isOn.wrappedValue.toggle() }
     }
     
-    // MARK: - 액션 버튼들
+    // MARK: - 액션 버튼들 (기존과 동일)
     private var actionButtons: some View {
         VStack(spacing: 16) {
             Rectangle()
