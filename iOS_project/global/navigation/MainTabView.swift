@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct MainTabView: View {
+    let onLogout: () -> Void
+    
     var body: some View {
         TabView {
             HomeView()
@@ -29,7 +31,7 @@ struct MainTabView: View {
                 Text("챗봇")
             }
 
-            MyView()
+            MyView(onLogout: onLogout)
                 .tabItem {
                     Image(systemName: "person.circle")
                     Text("마이")
