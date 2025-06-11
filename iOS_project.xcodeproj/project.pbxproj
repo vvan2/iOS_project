@@ -37,6 +37,7 @@
 		E7A74F1F2DF02C64006338F4 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F1E2DF02C64006338F4 /* SigninView.swift */; };
 		E7A74F212DF03305006338F4 /* SignUpStep1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F202DF03305006338F4 /* SignUpStep1View.swift */; };
 		E7A74F232DF0331E006338F4 /* SignUpStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A74F222DF0331E006338F4 /* SignUpStep2View.swift */; };
+		E7AF21542DF9AE08001E7C47 /* AttendanceSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AF21532DF9AE08001E7C47 /* AttendanceSheet.swift */; };
 		E7D27CD32DF0D6120081C81D /* FeatureIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CD22DF0D6120081C81D /* FeatureIcon.swift */; };
 		E7D27CD52DF0D70E0081C81D /* IconItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CD42DF0D70E0081C81D /* IconItem.swift */; };
 		E7D27CD72DF0D71F0081C81D /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D27CD62DF0D71F0081C81D /* CardItem.swift */; };
@@ -107,6 +108,7 @@
 		E7A74F1E2DF02C64006338F4 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
 		E7A74F202DF03305006338F4 /* SignUpStep1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1View.swift; sourceTree = "<group>"; };
 		E7A74F222DF0331E006338F4 /* SignUpStep2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2View.swift; sourceTree = "<group>"; };
+		E7AF21532DF9AE08001E7C47 /* AttendanceSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceSheet.swift; sourceTree = "<group>"; };
 		E7D27CD22DF0D6120081C81D /* FeatureIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureIcon.swift; sourceTree = "<group>"; };
 		E7D27CD42DF0D70E0081C81D /* IconItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconItem.swift; sourceTree = "<group>"; };
 		E7D27CD62DF0D71F0081C81D /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				E7A74EEF2DED946F006338F4 /* HomeView.swift */,
+				E7AF21532DF9AE08001E7C47 /* AttendanceSheet.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				E7A74EC62DED9325006338F4 /* iOS_projectApp.swift in Sources */,
 				E7D27CE72DF5863C0081C81D /* AnimatedProgressBar.swift in Sources */,
 				E7D27CD72DF0D71F0081C81D /* CardItem.swift in Sources */,
+				E7AF21542DF9AE08001E7C47 /* AttendanceSheet.swift in Sources */,
 				E7A74F232DF0331E006338F4 /* SignUpStep2View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
