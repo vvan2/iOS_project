@@ -101,6 +101,6 @@
 </table>
 
 
-
-
 ### 8. 발표영상
+영상링크
+https://www.youtube.com/watch?v=oNMyzmBKw3E
