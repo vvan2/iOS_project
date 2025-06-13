@@ -215,7 +215,7 @@
 		E7A74EFF2DED9A4B006338F4 /* component */ = {
 			isa = PBXGroup;
 			children = (
-				E7A74EF32DED96FF006338F4 /* Color.swift */,
+				E7AF21552DFA077B001E7C47 /* designsysytem */,
 				E7A74EFD2DED9A00006338F4 /* InfoCard.swift */,
 				E7A74F032DED9B1D006338F4 /* ToggleRow.swift */,
 				E7A74F052DED9BC9006338F4 /* RootView.swift */,
@@ -250,11 +250,7 @@
 		E7A74F0B2DEDBFA6006338F4 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				E7A74F0D2DEDC02D006338F4 /* Lecture.swift */,
-				E7A74F152DEFEE25006338F4 /* Message.swift */,
-				E7D27CD42DF0D70E0081C81D /* IconItem.swift */,
-				E7D27CD62DF0D71F0081C81D /* CardItem.swift */,
-				E7D27CD82DF0D7320081C81D /* NotificationItem.swift */,
+				E7AF21562DFA079A001E7C47 /* dto */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -363,6 +359,26 @@
 				E7A74EF12DED94A1006338F4 /* SplashView.swift */,
 			);
 			path = splash;
+			sourceTree = "<group>";
+		};
+		E7AF21552DFA077B001E7C47 /* designsysytem */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74EF32DED96FF006338F4 /* Color.swift */,
+			);
+			path = designsysytem;
+			sourceTree = "<group>";
+		};
+		E7AF21562DFA079A001E7C47 /* dto */ = {
+			isa = PBXGroup;
+			children = (
+				E7A74F0D2DEDC02D006338F4 /* Lecture.swift */,
+				E7A74F152DEFEE25006338F4 /* Message.swift */,
+				E7D27CD42DF0D70E0081C81D /* IconItem.swift */,
+				E7D27CD62DF0D71F0081C81D /* CardItem.swift */,
+				E7D27CD82DF0D7320081C81D /* NotificationItem.swift */,
+			);
+			path = dto;
 			sourceTree = "<group>";
 		};
 		E7D27CEC2DF5A1B40081C81D /* component */ = {
