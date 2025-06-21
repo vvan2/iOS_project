@@ -40,7 +40,7 @@
 - **프론트엔드**: SwiftUI
 - **아키텍처**: MVVM 패턴 적용 + Clean 아키텍쳐
 - **저장 방식**: UserDefaults 기반 로컬 저장소
-- **UI 요소**: Grid, List, ScrollView, TabView ,dialog등 활용
+- **UI 요소**: Grid, List, ScrollView, TabView ,dialog, animation등 활용
 
 ---
 
