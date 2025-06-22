@@ -29,6 +29,7 @@
 **BuggiMate**는 클라이언트 단독으로 운영되는 iOS 앱으로, SwiftUI를 기반으로 합니다.
 
 ### 3.1. 메인 구조
+- **SignUpView**: 기본 정보 및 학적 개인 정보 확보
 - **HomeView**: 주간 일정 및 중요 공지 요약 카드 제공
 - **TimeTableView**: 요일별 수업 등록 및 메모 기능
 - **CalendarView**: 월간/주간 일정 확인 및 할 일 등록/완료
