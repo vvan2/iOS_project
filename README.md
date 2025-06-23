@@ -1,4 +1,6 @@
 ## iOS programming - 1인 기말 프로젝트
+영상링크
+https://www.youtube.com/watch?v=oNMyzmBKw3E
 
 ![image](https://github.com/user-attachments/assets/7f7434d3-8a02-43a5-aa5b-9b59f0ab6de2)
 
