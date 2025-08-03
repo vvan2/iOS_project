@@ -1,4 +1,5 @@
-## iOS programming - 1인 기말 프로젝트
+## iOS programming - 1인 기말 프로젝트 (25.05~25.07)
+
 영상링크
 https://www.youtube.com/watch?v=oNMyzmBKw3E
 
